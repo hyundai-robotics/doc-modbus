@@ -4,8 +4,8 @@ As shown in the following figure, the user can write a program on the program wr
 
 #### <mark style="color:green;">FBD language</mark>
 
-![](../../.gitbook/assets/image17.png)
+![](../../_assets/image17.png)
 
 #### <mark style="color:green;">ST language</mark>
 
-![](../../.gitbook/assets/image18.png)
+![](../../_assets/image18.png)

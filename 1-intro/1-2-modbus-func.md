@@ -8,7 +8,7 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
     Capable of controlling the equipment (e.g., gripper) that supports MODBUS
 
-![](../.gitbook/assets/image2.png)
+![](../_assets/image2.png)
 
 ### <mark style="color:green;">2. Example of MODBUS slave operation</mark>
 
@@ -26,9 +26,9 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
     Allows a robot operation system to be built that monitors or controls the robot’s input and output signals using a PC.
 
-![](../.gitbook/assets/image3.png)
+![](../_assets/image3.png)
 
-![](<../.gitbook/assets/image (8).png>)
+![](<../_assets/image (8).png>)
 
 ### <mark style="color:green;">3. Support method</mark>
 
@@ -66,15 +66,15 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
 * Connector (DSUB – 9pin: female)
 
-![](<../.gitbook/assets/image (10).png>)
+![](<../_assets/image (10).png>)
 
 * Pin map
 
-![](../.gitbook/assets/image6.png)
+![](../_assets/image6.png)
 
 ### <mark style="color:green;">8. Address map</mark>
 
-![](<../.gitbook/assets/image (17).png>)
+![](<../_assets/image (17).png>)
 
 *   The enlarged numbers in italics in the table above represent the relay groups used in the MODBUS function.
 
@@ -104,36 +104,36 @@ In other words, the transmission described above will be performed in the order 
 
 ### <mark style="color:green;">9. SW memory map</mark>&#x20;
 
-![](<../.gitbook/assets/image (21).png>)
+![](<../_assets/image (21).png>)
 
 #### PLC-related
 
-![](<../.gitbook/assets/image (20).png>)
+![](<../_assets/image (20).png>)
 
 #### Software version
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../_assets/image (4).png>)
 
 #### Program counter
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../_assets/image (2).png>)
 
 #### Total time of operation
 
-![](<../.gitbook/assets/image (22).png>)
+![](<../_assets/image (22).png>)
 
 #### Robot position
 
-![](<../.gitbook/assets/image (16).png>)
+![](<../_assets/image (16).png>)
 
 #### Robot speed
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../_assets/image (15).png>)
 
 #### Robot load factor
 
-![](<../.gitbook/assets/image (18).png>)
+![](<../_assets/image (18).png>)
 
 #### Conveyor synchronization
 
-![](<../.gitbook/assets/image (19).png>)
+![](<../_assets/image (19).png>)
