@@ -8,7 +8,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
     MODBUS를 지원하는 장비(ex. Gripper)를 제어할 수 있습니다.
 
-![](../.gitbook/assets/image2.png)
+![](../_assets/image2.png)
 
 ### <mark style="color:green;">2. MODBUS slave 운용 예</mark>
 
@@ -26,9 +26,9 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
     PC를 이용하여 로봇의 입출력 신호를 모니터링 하거나 제어하는 로봇 운영 시스템을 구축할 수 있습니다.
 
-![](../.gitbook/assets/image3.png)
+![](../_assets/image3.png)
 
-![](<../.gitbook/assets/image (5).png>)
+![](<../_assets/image (5).png>)
 
 ### <mark style="color:green;">3. 지원 방식</mark>
 
@@ -66,15 +66,15 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 * 커넥터 (DSUB - 9 pin : female)
 
-![](../.gitbook/assets/image5.png)
+![](../_assets/image5.png)
 
 * 핀맵
 
-![](../.gitbook/assets/image6.png)
+![](../_assets/image6.png)
 
 ### <mark style="color:green;">8. Address 맵</mark>
 
-![](<../.gitbook/assets/image (10).png>)
+![](<../_assets/image (10).png>)
 
 *   상기 표의 기울임 꼴 큰 숫자는 Modbus 에서 사용하는 relay 그룹임
 
@@ -106,36 +106,36 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 <mark style="color:red;">\*추가된 맵을 사용하기 위해서 당사에 요청하십시오.</mark>
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../_assets/image (3).png>)
 
 #### PLC 관련
 
-![](<../.gitbook/assets/image (9).png>)
+![](<../_assets/image (9).png>)
 
 #### 소프트 웨어 버전
 
-![](../.gitbook/assets/image.png)
+![](../_assets/image.png)
 
 #### 프로그램 카운터
 
-![](<../.gitbook/assets/image (8).png>)
+![](<../_assets/image (8).png>)
 
 #### 통산 가동시간
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../_assets/image (2).png>)
 
 #### 로봇 위치
 
-![](<../.gitbook/assets/image (7).png>)
+![](<../_assets/image (7).png>)
 
 #### 로봇 속도
 
-![](<../.gitbook/assets/image (6).png>)
+![](<../_assets/image (6).png>)
 
 #### 로봇 부하율
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../_assets/image (4).png>)
 
 #### 컨베이어 동기
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../_assets/image (1).png>)

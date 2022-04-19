@@ -4,8 +4,8 @@
 
 #### <mark style="color:green;">FBD 언어</mark>
 
-![](../../.gitbook/assets/image17.png)
+![](../../_assets/image17.png)
 
 #### <mark style="color:green;">ST 언어</mark>
 
-![](../../.gitbook/assets/image18.png)
+![](../../_assets/image18.png)

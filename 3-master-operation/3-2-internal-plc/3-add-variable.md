@@ -2,4 +2,4 @@
 
 하기의 그림과 같이 변수 관리 화면에서 변수를 등록합니다.
 
-![](../../.gitbook/assets/image16.png)
+![](../../_assets/image16.png)

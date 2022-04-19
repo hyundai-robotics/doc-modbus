@@ -2,7 +2,7 @@
 
 모드버스의 세부사항은 **\[모드 버스]** 탭에서 다음과 같이 설정할 수 있습니다.
 
-![](../.gitbook/assets/image9.jpeg)
+![](../_assets/image9.jpeg)
 
 *   **동작**: Master 로 운영할지, Slave 운영할지 선택합니다.
 

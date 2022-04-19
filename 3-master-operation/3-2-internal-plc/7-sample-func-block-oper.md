@@ -3,4 +3,4 @@
 * main 이란 Program POU 에서 샘플로 작성한 펑션 블록을 호출하여 실행합니다.
 * main 이란 Program POU 는 CYCLIC task 에서 200 ms 마다 실행합니다.
 
-![](../../.gitbook/assets/image26.png)
+![](../../_assets/image26.png)
