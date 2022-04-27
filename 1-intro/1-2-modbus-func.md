@@ -28,7 +28,7 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
 ![](../_assets/image3.png)
 
-![](<../_assets/image (8).png>)
+![](<../_assets/image_8.png>)
 
 ### <mark style="color:green;">3. Support method</mark>
 
@@ -66,7 +66,7 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
 * Connector (DSUB – 9pin: female)
 
-![](<../_assets/image (10).png>)
+![](<../_assets/image_10.png>)
 
 * Pin map
 
@@ -74,7 +74,7 @@ The Hi6 robot controller supports the MODBUS master and slave functions both thr
 
 ### <mark style="color:green;">8. Address map</mark>
 
-![](<../_assets/image (17).png>)
+![](<../_assets/image_17.png>)
 
 *   The enlarged numbers in italics in the table above represent the relay groups used in the MODBUS function.
 
@@ -104,36 +104,36 @@ In other words, the transmission described above will be performed in the order 
 
 ### <mark style="color:green;">9. SW memory map</mark>&#x20;
 
-![](<../_assets/image (21).png>)
+![](<../_assets/image_21.png>)
 
 #### PLC-related
 
-![](<../_assets/image (20).png>)
+![](<../_assets/image_20.png>)
 
 #### Software version
 
-![](<../_assets/image (4).png>)
+![](<../_assets/image_4.png>)
 
 #### Program counter
 
-![](<../_assets/image (2).png>)
+![](<../_assets/image_2.png>)
 
 #### Total time of operation
 
-![](<../_assets/image (22).png>)
+![](<../_assets/image_22.png>)
 
 #### Robot position
 
-![](<../_assets/image (16).png>)
+![](<../_assets/image_16.png>)
 
 #### Robot speed
 
-![](<../_assets/image (15).png>)
+![](<../_assets/image_15.png>)
 
 #### Robot load factor
 
-![](<../_assets/image (18).png>)
+![](<../_assets/image_18.png>)
 
 #### Conveyor synchronization
 
-![](<../_assets/image (19).png>)
+![](<../_assets/image_19.png>)
