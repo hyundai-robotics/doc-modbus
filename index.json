@@ -1,0 +1,112 @@
+﻿[
+	{
+		"link": "README.md",
+		"char_ofs": 0,
+		"byte_ofs": 0
+	},
+	{
+		"link": "1-intro/README.md",
+		"char_ofs": 260,
+		"byte_ofs": 501
+	},
+	{
+		"link": "1-intro/1-1-preparatory-information.md",
+		"char_ofs": 269,
+		"byte_ofs": 516
+	},
+	{
+		"link": "1-intro/1-2-modbus-func.md",
+		"char_ofs": 370,
+		"byte_ofs": 721
+	},
+	{
+		"link": "2-serial-communication-setting/README.md",
+		"char_ofs": 4866,
+		"byte_ofs": 6362
+	},
+	{
+		"link": "2-serial-communication-setting/2-1-serial-cable-connect.md",
+		"char_ofs": 4882,
+		"byte_ofs": 6394
+	},
+	{
+		"link": "2-serial-communication-setting/2-2-serial-port-usage-setting.md",
+		"char_ofs": 4968,
+		"byte_ofs": 6551
+	},
+	{
+		"link": "2-serial-communication-setting/2-3-modbus-environment-setting.md",
+		"char_ofs": 5121,
+		"byte_ofs": 6831
+	},
+	{
+		"link": "3-master-operation/README.md",
+		"char_ofs": 5428,
+		"byte_ofs": 7427
+	},
+	{
+		"link": "3-master-operation/3-1-robot-lang/README.md",
+		"char_ofs": 5441,
+		"byte_ofs": 7452
+	},
+	{
+		"link": "3-master-operation/3-1-robot-lang/1-modbus-command.md",
+		"char_ofs": 5640,
+		"byte_ofs": 7936
+	},
+	{
+		"link": "3-master-operation/3-1-robot-lang/2-sample-program/README.md",
+		"char_ofs": 6905,
+		"byte_ofs": 9475
+	},
+	{
+		"link": "3-master-operation/3-1-robot-lang/2-sample-program/2-1-ethernet-communication.md",
+		"char_ofs": 6922,
+		"byte_ofs": 9506
+	},
+	{
+		"link": "3-master-operation/3-1-robot-lang/2-sample-program/2-2-serial-communication.md",
+		"char_ofs": 8257,
+		"byte_ofs": 11003
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/README.md",
+		"char_ofs": 9351,
+		"byte_ofs": 12277
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/1-add-native-firmware-library.md",
+		"char_ofs": 9471,
+		"byte_ofs": 12548
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/2-add-func-block.md",
+		"char_ofs": 9800,
+		"byte_ofs": 13012
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/3-add-variable.md",
+		"char_ofs": 10024,
+		"byte_ofs": 13343
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/4-creat-func-block.md",
+		"char_ofs": 10104,
+		"byte_ofs": 13484
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/5-sample-func-block.md",
+		"char_ofs": 10321,
+		"byte_ofs": 13796
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/6-descript-sample-func-block.md",
+		"char_ofs": 10495,
+		"byte_ofs": 13999
+	},
+	{
+		"link": "3-master-operation/3-2-internal-plc/7-sample-func-block-oper.md",
+		"char_ofs": 11221,
+		"byte_ofs": 15171
+	}
+]
