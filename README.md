@@ -15,5 +15,5 @@ Hyundai Robotics reserves the right to modify this document without prior notifi
 
 
 
-**Copyright ⓒ 2020 by Hyundai Robotics Co., Ltd**
+**Copyright ⓒ 2020 by Hyundai Robotics**
 {% endhint %}
