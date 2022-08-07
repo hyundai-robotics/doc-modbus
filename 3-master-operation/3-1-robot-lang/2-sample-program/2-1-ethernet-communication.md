@@ -1,4 +1,4 @@
-# 3.1.2.1 이더넷 통신
+﻿# 3.1.2.1 이더넷 통신
 
 하기는 onRobot gripper 를 제어하기 위한 샘플 프로그램으로 Hi6 제어기와 onRobot gripper 는 Modbus tcp 로 통신합니다. 여기서 Hi6 제어기는 master 로 운영되며 gripper 가 slave 로 운영됩니다.
 

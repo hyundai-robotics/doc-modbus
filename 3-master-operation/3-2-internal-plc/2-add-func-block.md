@@ -1,4 +1,4 @@
-# 3.2.2 펑션 블록 추가
+﻿# 3.2.2 펑션 블록 추가
 
 하기 그림과 같이 **\[Logical POUs > Insert > Function Block...]** 에서 Function Block을 추가합니다.
 

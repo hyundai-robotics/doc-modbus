@@ -1,4 +1,4 @@
-# 3.2.1 Native firmware library 추가
+﻿# 3.2.1 Native firmware library 추가
 
 하기의 그림과 같이 **\[Libraies > Firmware Libray…]** 에서 “**Hi6\_FWLib.fwl**” 파일을 선택하여 추가합니다.
 
