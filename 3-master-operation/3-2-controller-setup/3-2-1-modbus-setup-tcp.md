@@ -8,7 +8,9 @@
 모드버스 TCP 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 1: Modbus TCP Master settings]** 화면에서 설정할 수 있습니다.
 
 {% hint style="warning" %}
-{%endhint%}
+변경된 파라미터로 통신하기 위해서는 [확인] 혹은 [적용(shift + 확인)] 을 통해 변경 내용을 반영하신 뒤에 올바른 작업을 하실 수 있습니다.
+{% endhint %}
+
 ![](../../_assets/image27.png)
 
 <li>IP address: 슬레이브 장치 IP 주소</li>

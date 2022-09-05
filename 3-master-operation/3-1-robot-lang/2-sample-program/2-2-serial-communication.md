@@ -15,14 +15,14 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis:
      arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
 
      master.write(65,0,3,arr,3000,99)
-     var status=master.state
+     var status=master.status
      if status<0
        print "write communication error"
        stop
      endif
 
      var recv_data=master.read(65,267,2,3000,99)
-     status=master.state
+     status=master.status
      if status<0
        print "read communication error"
        stop
