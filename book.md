@@ -57,7 +57,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
 | :-------: | :--------: | :------------------------------------: |
-| Master 운영 |  로봇 언어 명령문 |                로봇 언어 명령문               |
+| Master 운영 |  <p>로봇 언어 명령문</p><p>제어기 설정</p>|                <p>로봇 언어 명령문</p><p>제어기 설정</p>               |
 |  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502 (고정)</p> |
 
 
@@ -189,194 +189,244 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 # 3.1 로봇 언어
 
-로봇언어 명령문을 사용하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. 해당 명령문을 실행할 때 데이터 송수신이 이루어지며 만약 주기적으로 데이터를 송수신하는 것이 필요하다면 이를 위한 작업 프로그램을 구성한 후 멀티 태스크로 구동할 수도 있겠지만 이 경우는 내장 PLC를 통하여 통신하는 것을 권장합니다.
-# 3.1.1 명령어 (모드버스)
+로봇언어 명령문을 사용하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. 해당 명령문을 실행할 때 데이터 송수신이 이루어지며 만약 주기적으로 데이터를 송수신하는 것이 필요하다면 제어기 내부 설정을 통하여 통신할 수도 있겠지만 이 경우는 내장 PLC를 통하여 통신하는 것을 권장합니다.
 
-로봇 언어로 모드버스 마스트 통신을 하는 명령문 입니다.
+# 3.1.1 명령어
 
+로봇 언어로 모드버스 마스터 통신을 하는 명령문 입니다.
 모드버스 통신에 대한 이해를 위해서 별도로 학습하시기 바랍니다.
 
+# 3.1.1.1 마스터 선언
+
+모드버스 마스터를 선언 하는 명령문 입니다.
+
+해당 마스터를 활용하여 통신을 수행할 수 있으므로 읽기/쓰기 이전에 선언되어야합니다.
+
+반드시 사용하시기 전에 modbus 모듈을 가져와서 사용하시길 바랍니다. (예: import modbus)
 #### <mark style="color:green;">문법</mark>
 
 ```
-modbus enet2,sid=65,fc=16,addr=0,len=3,wiat=3,var=arr
+var master = modbus.Modbus(protocol,port,ip_addr)
 ```
 
 #### <mark style="color:green;">파라미터</mark>
 
-| enet2 | 통신 객체 (이더넷 또는 시리얼)                                                                                      |           |
+|파라미터| 설명                                                                                                    |    예    |
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-|  sid  | 슬레이브 id                                                                                                 |  1 \~ 255 |
-|   fc  | <p>펑션 코드</p><ul><li>03 = read holding register(multiple)</li><li>16 = write multiple register</li></ul> |   03, 16  |
-|  addr | 시작 주소                                                                                                   | 0 \~65534 |
-|  len  | 데이터 길이                                                                                                  |  1 \~ 127 |
-|  wait | 통신 대기시간                                                                                                 |           |
-|  var  | <p>데이터 송수신을 위한 배열 변수</p><p>(미지정시 자체 모드버스 맵이 사용됨)</p>                                                    |           |
+| var master | <p>임의의 변수를 선언하여 모드버스 마스터 객체를 받아옴.</p>(전역변수도 가능)                                         | master |
+| protocol | <p>통신프로토콜 타입(str)</p><ul><li>tcp</li><li>rtu</li></ul>                                         | "tcp" or "rtu" |
+|   port  | <p>통신 포트(int)</p><ul><li>tcp: tcp 포트 번호 </li><li>rtu: 시리얼 포트번호 (0~2)</li></ul>        |  502(tcp) or 2(rtu)   |
+|<p>ip_addr</p> (tcp만 필요) |  모드버스 TCP 슬레이브 장치 IP 주소(str)                                                       | "192.168.1.1" |
+
+                     |           |
+
+# 3.1.1.2 데이터 읽기(function code: 03)
+
+슬레이브 장치의 레지스터 데이터를 읽기 위한 명령문 입니다.
+
+슬레이브의 레지스터 주소를 시작으로 레지스터 길이만큼을 읽어옵니다. 
+
+앞서 선언한 마스터를 가져와 수행하게 됩니다.
+
+#### <mark style="color:green;">문법</mark>
+
+```
+var value = master.read(salve_id,addr,length,timeout)
+```
+
+#### <mark style="color:green;">파라미터</mark>
+
+|파라미터| 설명                                                                                                    |    예    |
+| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
+| var value | <p>임의의 변수를 선언하여 데이터를 읽어옴.(array)</p>(전역변수도 가능)                                      | [0,1,2] |
+| slave_id | 슬레이브 장치 id (int)                                         | <p>1</p>(0~255) |
+|   addr  | <p>슬레이브 레지스터 시작 주소 (int)</p> (use devcimal numbers, not hex)      |  0  |
+|  length  | 슬레이브 레지스터 길이 (int)                                                        | 3 |
+|  timeout  |  타임아웃 (int), 단위: msec                                                      | 5000 |
+
+# 3.1.1.3 데이터 쓰기(function code: 16)
+
+슬레이브 장치의 레지스터에 데이터를 쓰기 위한 명령문 입니다.
+
+슬레이브의 레지스터 주소를 시작으로 레지스터 길이만큼 데이터를 쓰게 됩니다.
+
+입력 데이터 길이보다 슬레이브 레지스터 길이가 작은 경우 0번지 부터 길이만큼 입력되게 되고,
+반대로 슬레이브 레지스터 길이가 큰 경우에는 입력 데이터 길이 만큼만 쓰여지게 됩니다. 
+
+앞서 선언한 마스터를 가져와 수행하게 됩니다.
+
+#### <mark style="color:green;">문법</mark>
+
+```
+master.write(salve_id,addr,length,values,timeout)
+```
+
+#### <mark style="color:green;">파라미터</mark>
+
+|파라미터| 설명                                                                                                    |    예    |
+| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
+| slave_id | 슬레이브 장치 id(int)                                         | <p>1</p>(0~255) |
+|   addr  | <p>슬레이브 레지스터 시작 주소(int)</p> (use devcimal numbers, not hex)      |  0  |
+|  length  | 슬레이브 레지스터 길이(int)                                                        | 3 |
+|  values  |  입력 데이터(array)                                                      | [0,1,2] |
+|  timeout  |  타임아웃(int), 단위: msec                                                      | 5000 |
+
+# 3.1.1.4 모드버스 마스터 상태
+
+모드버스 통신 상태를 확인 하기 위한 명령문 입니다.
+앞서 선언한 마스터를 가져와 수행하게 됩니다.
+
+#### <mark style="color:green;">문법</mark>
+
+```
+var status = master.state
+```
+
+#### <mark style="color:green;">파라미터</mark>
+
+|파라미터| 설명                                                                                                    
+| :---: | ------------------------------------------------------------------------------------------------------- 
+| var status |<p>임의의 변수를 선언하여 상태를 받아옴.</p>(전역변수도 가능) |
+|   state  | <p>통신상태</p><ul><li>초기상태 (연결 안됨) = 0</li><li>정상 = 1</li><li>통신에러 = -1</li><li>시간초과 에러 = -2</li></ul>    | 
+
+
 # 3.1.2 샘플 프로그램
 
 # 3.1.2.1 이더넷 통신
 
 하기는 onRobot gripper 를 제어하기 위한 샘플 프로그램으로 Hi6 제어기와 onRobot gripper 는 Modbus tcp 로 통신합니다. 여기서 Hi6 제어기는 master 로 운영되며 gripper 가 slave 로 운영됩니다.
 
-{% code title="0060.job" %}
 ```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-call 61,1 # onRobot module open
-call 61,2,0 # onRobot gripper hold
-delay(3)
-call 61,2,300 # onRobot gripper release
-call 61,0 # onRobot module close
-delay(3)
-end
-```
-{% endcode %}
+Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
+     import modbus
+     var master=modbus.Modbus("tcp",502,"192.168.1.11")
 
-{% code title="0061.job" %}
+     global arr
+     arr=Array(300)
+     arr[0]=300 #force(0~400)
+     arr[1]=200 #width (0~1100)
+     arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
+
+     master.write(65,0,3,arr,3000,99)
+     var status=master.state
+     if status<0
+       print "write communication error"
+       stop
+     endif
+
+     var recv_data=master.read(65,267,2,3000,99)
+     status=master.state
+     if status<0
+       print "read communication error"
+       stop
+     endif
+
+     arr[267]=recv_data[0] #actual width
+     arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
+     if arr[268]<1 and arr[268]>7
+       print "check the gripper status"
+       stop
+     endif
+     end
+     
+  99 print "timeout"
+
 ```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-param mode,grip
-if (mode == 1) # enet module open
-    import enet
-    global enet2,arr
-    if (arr==0)
-        arr=Array(5)
-    endif
-    # onRobot gripper enet connect
-    enet2=enet.ENet("tcp") #udp,tcp
-    enet2.ip_addr="192.168.1.111" #OnRonot IP
-    enet2.lport=502
-    enet2.rport=502
-    if (enet2.state() < 1)
-        enet2.open
-        enet2.connect #tcp인 경우
-    else
-        stop
-    endif
-    print "enet2.state", enet2.state()
-elseif (mode == 0) # enet module close
-    enet2.close
-else # onRobot gripper operate
-    arr[0] = 300 # force (0~400)
-    arr[1] = grip # width (0~1100)
-    arr[2] = 1 # control (1:grip, 8=stop, 16=offset grip) 
-    modbus enet2,sid=65,fc=16,addr=0,len=3,wait=3,var=arr
-endif
-end
-```
-{% endcode %}
+
+
 # 3.1.2.2 시리얼 통신
 
 하기는 onRobot gripper를 시리얼 통신으로 제어한다고 가정하였을 때 샘플 프로그램입니다. 먼저 시리얼 통신 설정에서 포트 용도를 **\[MODBUS]**로 모드버스의Operation은 **\[master]** 로 설정되어야 합니다.
 
 {% code title="0060.job" %}
 ```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-call 61,1 # onRobot module open
-call 61,2,0 # onRobot gripper hold
-delay(3)
-call 61,2,300 # onRobot gripper release
-call 61,0 # onRobot module close
-delay(3)
-end
+Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
+     import modbus
+     var master=modbus.Modbus("rtu",2)
+     
+     global arr
+     arr=Array(300)
+     arr[0]=300 #force(0~400)
+     arr[1]=200 #width (0~1100)
+     arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
+
+     master.write(65,0,3,arr,3000,99)
+     var status=master.state
+     if status<0
+       print "write communication error"
+       stop
+     endif
+     
+     var recv_data=master.read(65,267,2,3000,99)
+     status=master.state
+     if status<0
+       print "read communication error"
+       stop
+     endif
+     
+     arr[267]=recv_data[0] #actual width
+     arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
+    
+     if arr[268]<1 and arr[268]>7
+       print "check the gripper status"
+       stop
+     endif
+     end
+
+  99 print "timeout"
 ```
 {% endcode %}
 
-{% code title="0061.job" %}
-```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-param mode,grip
-if (mode == 1) # enet module open
-    global sci2,arr
-    if (arr==0)
-        arr=Array(5)
-    endif
-    # onRobot gripper enet connect
-    sci2=com.Sci(2) # serial port 2 object
-elseif (mode == 0) # enet module close
-    print “sci close”
-else # onRobot gripper operate
-    arr[0] = 300 # force (0~400)
-    arr[1] = grip # width (0~1100)
-    arr[2] = 1 # control (1:grip, 8=stop, 16=offset grip) 
-    modbus sci2,sid=65,fc=16,addr=0,len=3,wait=3,var=arr
-endif
-end
+# 3.2 제어기 설정
 
-```
-{% endcode %}
-# 3.2 내장 PLC
+제어기에서의 설정을 통하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. Scan Rate를 설정함으로써 주기적으로 데이터를 송수신하는 것이 가능합니다. 해당 설정을 통하여 일대일 마스터와 슬레이브 설정이 가능합니다.
 
-내장 PLC 래더 로직에 의해 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. 이를 사용하기 위해서는 내장 PLC 에 대한 지식이 필요하며 관련 설명서를 참고하십시오.
-# 3.2.1 Native firmware library 추가
+모드버스 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus]** 화면에서 통신 방식에 따라 설정할 수 있습니다.
 
-하기의 그림과 같이 **\[Libraies > Firmware Libray…]** 에서 “**Hi6\_FWLib.fwl**” 파일을 선택하여 추가합니다.
+# 3.2.1 모드버스 TCP 마스터 설정
 
-![](../../_assets/image10.png) ![](../../_assets/image11.png)
+모드버스 TCP 마스터 쿼리를 구성하고 이를 슬레이브에 전송하는 설정입니다.
 
-Edit Wizard 에서 ENET 통신과 관련된 펑션 블록들과 MODBUS\_TCP 와 관련된 펑션 블록이 추가된 것을 확인할 수 있습니다.
+해당 마스터를 활용하여 통신을 수행할 수 있습니다.
 
-![](../../_assets/image12.png) ![](../../_assets/image13.png)
-# 3.2.2 펑션 블록 추가
 
-하기 그림과 같이 **\[Logical POUs > Insert > Function Block...]** 에서 Function Block을 추가합니다.
+모드버스 TCP 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 1: Modbus TCP Master settings]** 화면에서 설정할 수 있습니다.
 
-![](../../_assets/image14.png)
 
-본 예제에서는 modbus라는 이름으로 ST 언어를 사용하겠다고 선택하였습니다. ****&#x20;
+![](_assets/image27.png)
 
-![](../../_assets/image15.png)
-# 3.2.3 변수 추가
+<li>IP address: 슬레이브 장치 IP 주소</li>
+<li>Port: TCP 통신 포트 번호 (기본값:502)</li>
+<li>Salve ID: 슬레이브 장치 ID </li>
+<li>Function code: 함수 코드 (03: Read Holding Registers /16: Write Multiple registers)
+<li>Address: 슬레이브 레지스터 시작 주소</li>
+<li>Length: 슬레이브 레지스터 길이</li>
+<li>Scan Rate: 통신 주기 (단위: 5msec) </li>
+<li>Value: 03: 읽어오는 데이터 값/16: 쓰여지는 데이터 값 (예) 1개 데이터: 0 / 3개 데이터 : 0,1,2 </li>
+<li>Timeout: 타임 아웃 (단위:msec) </li>
+<li>Connect: 연결 및 데이터 송수신 시작</li>
+<li>Reset: 선택된 파라미터의 이전 저장 값으로 초기화 & value(read)의 경우, 읽어 온 값 갱신 </li>
+<li>ResetAll: 모든 파라미터들의 이전 저장 값으로 초기화</li>
 
-하기의 그림과 같이 변수 관리 화면에서 변수를 등록합니다.
+# 3.2.2 모드버스 RTU 마스터 설정
 
-![](../../_assets/image16.png)
-# 3.2.4 펑션 블록 작성
+모드버스 RTU 마스터 쿼리를 구성하고 이를 슬레이브에 전송하는 설정입니다.
 
-하기의 그림과 같이 프로그램 작성 화면에서 사용자는 프로그램을 작성합니다.
+해당 마스터를 활용하여 통신을 수행할 수 있습니다.
 
-#### <mark style="color:green;">FBD 언어</mark>
 
-![](../../_assets/image17.png)
+모드버스 RTU 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 2: Modbus RTU Master settings]** 화면에서 설정할 수 있습니다.
 
-#### <mark style="color:green;">ST 언어</mark>
 
-![](../../_assets/image18.png)
-# 3.2.5 샘플 펑션 블록
+![](_assets/image28.png)
 
-#### <mark style="color:green;">FBD 언어</mark>
-
-![](../../_assets/image19.png)
-
-#### <mark style="color:green;">ST 언어</mark>
-
-![](../../_assets/image20.png)
-# 3.2.6 샘플 펑션 블록 설명
-
-* PLC 를 RUN 하면 socket 변수가 0 으로 초기화 되어 있어 enet 통신을 위한 소켓을 자동으로 open 합니다.
-* IPaddr 은 연결할 상대 장치의 ip address 를 지정합니다.
-
-![](../../_assets/image21.png)
-
-* connect 변수를 1 로 설정하면 슬레이브 장치와 연결 동작을 수행한 후 connect 변수를 0 으로 변경합니다.
-
-![](../../_assets/image22.png)
-
-* query 변수를 1 로 설정하면 Function:=3, Address:=0, Length:=3 에 의해 슬레이브에서 0 번지부터 3 개의 데이터를 얻어와 data의 배열 변수로 전달합니다. (read)
-* Result 가 1 이면 query 를 2 로 설정하고 data\[0]의 변수 값을 1 증가 합니다.
-
-![](../../_assets/image23.png)
-
-* query 변수가 2 이면  Function:=16, Address:=0, Length:=3 에 의해 data 배열 변수에 설정된 값을 슬레이브의 0 번지부터 3 개의 데이러를 설정합니다. (write)
-* Result가 1 이면 query 를 1 로 설정합니다.
-
-![](../../_assets/image24.png)
-
-* close 변수를 1 로 설정하면 소켓을 닫게 됩니다.
-
-![](../../_assets/image25.png)
-# 3.2.7 샘플 펑션 블록 가동
-
-* main 이란 Program POU 에서 샘플로 작성한 펑션 블록을 호출하여 실행합니다.
-* main 이란 Program POU 는 CYCLIC task 에서 200 ms 마다 실행합니다.
-
-![](../../_assets/image26.png)
+<li>Serial port: 시리얼 통신 포트 번호 (기본값: 2)</li>
+<li>Salve ID: 슬레이브 장치 ID </li>
+<li>Function code: 함수 코드 (03: Read Holding Registers /16: Write Multiple registers)
+<li>Address: 슬레이브 레지스터 시작 주소</li>
+<li>Length: 슬레이브 레지스터 길이</li>
+<li>Scan Rate: 통신 주기 (단위: 5msec) </li>
+<li>Value: 03: 읽어오는 데이터 값/16: 쓰여지는 데이터 값 (예) 1개 데이터: 0 / 3개 데이터 : 0,1,2 </li>
+<li>Connect: 연결 및 데이터 송수신 시작</li>
+<li>Reset: 선택된 파라미터의 이전 저장 값으로 초기화 & value(read)의 경우, 읽어 온 값 갱신 </li>
+<li>ResetAll: 모든 파라미터들의 이전 저장 값으로 초기화</li>

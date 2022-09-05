@@ -4,37 +4,39 @@
 
 {% code title="0060.job" %}
 ```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-call 61,1 # onRobot module open
-call 61,2,0 # onRobot gripper hold
-delay(3)
-call 61,2,300 # onRobot gripper release
-call 61,0 # onRobot module close
-delay(3)
-end
-```
-{% endcode %}
+Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
+     import modbus
+     var master=modbus.Modbus("rtu",2)
+     
+     global arr
+     arr=Array(300)
+     arr[0]=300 #force(0~400)
+     arr[1]=200 #width (0~1100)
+     arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
 
-{% code title="0061.job" %}
-```
-Hyundai Robot Job File; { version: 1.6, mech_type: "780(YL012-0D)", total_axis: 6, aux_axis: 0 }
-param mode,grip
-if (mode == 1) # enet module open
-    global sci2,arr
-    if (arr==0)
-        arr=Array(5)
-    endif
-    # onRobot gripper enet connect
-    sci2=com.Sci(2) # serial port 2 object
-elseif (mode == 0) # enet module close
-    print “sci close”
-else # onRobot gripper operate
-    arr[0] = 300 # force (0~400)
-    arr[1] = grip # width (0~1100)
-    arr[2] = 1 # control (1:grip, 8=stop, 16=offset grip) 
-    modbus sci2,sid=65,fc=16,addr=0,len=3,wait=3,var=arr
-endif
-end
+     master.write(65,0,3,arr,3000,99)
+     var status=master.state
+     if status<0
+       print "write communication error"
+       stop
+     endif
+
+     var recv_data=master.read(65,267,2,3000,99)
+     status=master.state
+     if status<0
+       print "read communication error"
+       stop
+     endif
+
+     arr[267]=recv_data[0] #actual width
+     arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
+     if arr[268]<1 and arr[268]>7
+       print "check the gripper status"
+       stop
+     endif
+     end
+
+  99 print "timeout"
 
 ```
 {% endcode %}
