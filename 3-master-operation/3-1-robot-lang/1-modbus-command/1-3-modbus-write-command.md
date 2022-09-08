@@ -11,7 +11,7 @@
 
 #### <mark style="color:green;">문법</mark>
 
-```
+``` python
 master.write(salve_id,addr,length,values,timeout)
 ```
 

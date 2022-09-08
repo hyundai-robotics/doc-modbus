@@ -12,11 +12,13 @@
 var value = master.read(salve_id,addr,length,timeout,addr_on_timeout)
 ```
 
+#### <mark style="color:green;">리턴값</mark>
+- 송신 데이터(array type)
+
 #### <mark style="color:green;">파라미터</mark>
 
 |파라미터| 설명                                                                                                    |    예    |
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| var value | <p>임의의 변수를 선언하여 데이터를 읽어옴.(array)</p>(전역변수도 가능)                                      | [0,1,2] |
 | slave_id | 슬레이브 장치 id (int)                                         | <p>1</p>(0~255) |
 |   addr  | <p>슬레이브 레지스터 시작 주소 (int)</p> (use devcimal numbers, not hex)      |  0  |
 |  length  | 슬레이브 레지스터 길이 (int)                                                        | 3 |
