@@ -35,7 +35,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
 | :-------: | :--------: | :------------------------------------: |
 | Master 운영 |  <p>로봇 언어 명령문</p><p>제어기 설정</p> |                <p>로봇 언어 명령문</p><p>제어기 설정</p>               |
-|  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502 (고정)</p> |
+|  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502, 5000, 5001(고정)</p> |
 
 
 
@@ -83,6 +83,8 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
     * SO(system output)
     * SI(system input)
     * SW(System memory)
+    * Y(output relay)
+    * X(input relay)
 
 
 *   Data 형식
@@ -104,38 +106,4 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">9. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">\*추가된 맵을 사용하기 위해서 당사에 요청하십시오.</mark>
-
-![](<../_assets/image_3.png>)
-
-#### PLC 관련
-
-![](<../_assets/image_9.png>)
-
-#### 소프트 웨어 버전
-
-![](../_assets/image.png)
-
-#### 프로그램 카운터
-
-![](<../_assets/image_8.png>)
-
-#### 통산 가동시간
-
-![](<../_assets/image_2.png>)
-
-#### 로봇 위치
-
-![](<../_assets/image_7.png>)
-
-#### 로봇 속도
-
-![](<../_assets/image_6.png>)
-
-#### 로봇 부하율
-
-![](<../_assets/image_4.png>)
-
-#### 컨베이어 동기
-
-![](<../_assets/image_1.png>)
+<mark style="color:red;">\*시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "내장 PLC 사용 설명서"를 참고하십시오.</mark>
