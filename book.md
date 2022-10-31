@@ -58,7 +58,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
 | :-------: | :--------: | :------------------------------------: |
 | Master 운영 |  <p>로봇 언어 명령문</p><p>제어기 설정</p> |                <p>로봇 언어 명령문</p><p>제어기 설정</p>               |
-|  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502 (고정)</p> |
+|  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502, 5000, 5001(고정)</p> |
 
 
 
@@ -106,6 +106,8 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
     * SO(system output)
     * SI(system input)
     * SW(System memory)
+    * Y(output relay)
+    * X(input relay)
 
 
 *   Data 형식
@@ -127,41 +129,7 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">9. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">\*추가된 맵을 사용하기 위해서 당사에 요청하십시오.</mark>
-
-![](<../_assets/image_3.png>)
-
-#### PLC 관련
-
-![](<../_assets/image_9.png>)
-
-#### 소프트 웨어 버전
-
-![](../_assets/image.png)
-
-#### 프로그램 카운터
-
-![](<../_assets/image_8.png>)
-
-#### 통산 가동시간
-
-![](<../_assets/image_2.png>)
-
-#### 로봇 위치
-
-![](<../_assets/image_7.png>)
-
-#### 로봇 속도
-
-![](<../_assets/image_6.png>)
-
-#### 로봇 부하율
-
-![](<../_assets/image_4.png>)
-
-#### 컨베이어 동기
-
-![](<../_assets/image_1.png>)
+<mark style="color:red;">\*시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "내장 PLC 사용 설명서"를 참고하십시오.</mark>
 # 2. 시리얼 통신 설정
 
 # 2.1 시리얼 케이블 연결
@@ -174,6 +142,8 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 시리얼 포트의 용도를 MODBUS 로 설정하는 것은 **\[설정 > 2: 제어 파라미터 > 3: 시리얼 포트]** 화면의 **\[일반 설정]** 탭에서 다음과 같이 설정할 수 있습니다.
 
 ![](../_assets/image8.png)
+
+
 # 2.3 모드버스 환경 설정
 
 모드버스의 세부사항은 **\[모드 버스]** 탭에서 다음과 같이 설정할 수 있습니다.
@@ -318,16 +288,14 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis:
      master.write(65,0,3,arr,3000,99)
 
      # 통신 상태 확인 (0: 연결안됨(초기상태), 1: 정상 상태, -1: 통신 실패, -2: 타임아웃 에러 )
-     var status=master.status
-     if status<0
+     if master.status<0
        print "write communication error"
        stop
      endif
 
      # read 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
      var recv_data=master.read(65,267,2,3000,99)
-     status=master.status
-     if status<0
+     if master.status<0
        print "read communication error"
        stop
      endif
@@ -370,16 +338,14 @@ Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis:
      master.write(65,0,3,arr,3000,99)
      
      # 통신 상태 확인 (0: 연결안됨(초기상태), 1: 정상 상태, -1: 통신 실패, -2: 타임아웃 에러 )
-     var status=master.status
-     if status<0
+     if master.status<0
        print "write communication error"
        stop
      endif
      
      # read 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
      var recv_data=master.read(65,267,2,3000,99)
-     status=master.status
-     if status<0
+     if master.status<0
        print "read communication error"
        stop
      endif
