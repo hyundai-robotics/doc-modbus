@@ -28,8 +28,6 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 ![](../_assets/image3.png)
 
-![](<../_assets/image_5.png>)
-
 ### <mark style="color:green;">3. 지원 방식</mark>
 
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
