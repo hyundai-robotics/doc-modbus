@@ -77,6 +77,8 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 *   상기 표의 기울임 꼴 큰 숫자는 Modbus 에서 사용하는 relay 그룹임
 
     * MW(data memory for user)
+    * RW(auxiliary memory for user)
+    * KW(keep memory for user)
     * DO(digital output)
     * SO(system output)
     * SI(system input)
