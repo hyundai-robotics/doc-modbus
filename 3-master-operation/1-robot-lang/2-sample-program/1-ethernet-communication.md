@@ -1,38 +1,38 @@
-﻿# 3.1.2.1 이더넷 통신
+﻿# 3.1.2.1 Ethernet Communication
 
-하기는 onRobot gripper 를 제어하기 위한 샘플 프로그램으로 Hi6 제어기와 onRobot gripper 는 Modbus tcp 로 통신합니다. 여기서 Hi6 제어기는 master 로 운영되며 gripper 가 slave 로 운영됩니다.
+ The following shows a sample program that controls the onRobot gripper. The Hi6 controller and the onRobot gripper communicate via the Modbus tcp. Here, the Hi6 controller is operated as the master, while the gripper is operated as a slave.
 
 ```python
 Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
     
-     # modbus 모듈 import 후, 생성자로 modbus master 객체 생성(통신 타입 및 포트 번호, ip 주소 설정) 
+     # Import the modbus module, then create a modbus master object using a constructor (set the communication type, port number, and IP address.) 
      import modbus
      var master=modbus.Modbus("tcp",502,"192.168.1.1")
 
-     # 전송 데이터
+     # Data to transmit
      global arr
      arr=Array(300)
-     arr[0]=300 #force(0~400)
-     arr[1]=200 #width (0~1100)
+     arr[0]=300 #force(0–400)
+     arr[1]=200 #width (0–1100)
      arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
      
-     # write 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
+     # Execute the write operation. (Option) Branch to the 99th line when exceeding 3000 msec.
      master.write(65,0,3,arr,3000,99)
 
-     # 통신 상태 확인 (0: 연결안됨(초기상태), 1: 정상 상태, -1: 통신 실패, -2: 타임아웃 에러 )
+     # Check the communication status (0: no connection (default state), 1: normal state, -1: communication failure, -2: timeout error.)
      if master.status<0
        print "write communication error"
        stop
      endif
 
-     # read 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
+     # Execute the read operation. (Option) Branch to the 99th line when exceeding 3000 msec.
      var recv_data=master.read(65,267,2,3000,99)
      if master.status<0
        print "read communication error"
        stop
      endif
 
-     # 수신 데이터 처리
+     # Handle the received data.
      arr[267]=recv_data[0] #actual width
      arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
      if arr[268]<1 and arr[268]>7

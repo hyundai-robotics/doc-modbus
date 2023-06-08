@@ -1,3 +1,3 @@
-﻿# 3.1 로봇 언어
+﻿# 3.1 Robot Language
 
-로봇언어 명령문을 사용하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. 해당 명령문을 실행할 때 데이터 송수신이 이루어지며 만약 주기적으로 데이터를 송수신하는 것이 필요하다면 제어기 내부 설정을 통하여 통신할 수 있습니다.
+By using statements in robot language, you can configure a Modbus master query and send it to the slave. If the periodic transmission and reception of data are required, you can communicate through the internal settings of the controller.

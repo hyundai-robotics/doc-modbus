@@ -1,6 +1,6 @@
-﻿# 1.1 사전 필요 정보
+﻿# 1.1 Preparatory Information
 
-이 설명서를 이해하기 위해서는 다음과 같은 사전 정보가 필요합니다.
+To understand this manual, the following preparatory information is required.
 
-1. **Hi6 로봇 제어기 조작 지식**
-2. **Modbus 프로토콜 지식**
+1. **Knowledge about operating the Hi6 robot controller**
+2. **Knowledge about the Modbus protocol**

@@ -1,26 +1,26 @@
-﻿# 3.2.2 모드버스 RTU 마스터 설정
+﻿# 3.2.2 Setting the Modbus RTU Master
 
-모드버스 RTU 마스터 쿼리를 구성하고 이를 슬레이브에 전송하는 설정입니다.
+This setting is used for configuring a Modbus RTU master query and sending it to a slave.
 
-해당 마스터를 활용하여 통신을 수행할 수 있습니다.
+Using the relevant master, you can perform communications.
 
 
-모드버스 RTU 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 2: Modbus RTU Master settings]** 화면에서 설정할 수 있습니다.
+You can set the Modbus RTU master in the **\[Setting > 2: Control parameter > Modbus > 2: Modbus RTU Master settings]** screen.
 
 {% hint style="warning" %}
-변경된 파라미터로 통신하기 위해서는 [확인] 혹은 [적용(shift + 확인)] 을 통해 변경 내용을 반영하신 뒤에 올바른 작업을 하실 수 있습니다.
+To communicate using the changed parameters, the changes should be reflected through [Confirm] or [Apply (shift + confirm)]. Doing so will enable you to perform a job correctly.
 {% endhint %}
 
 ![](../../_assets/image28.png)
 
-<li>Serial port: 시리얼 통신 포트 번호 (기본값: 2)</li>
-<li>Salve ID: 슬레이브 장치 ID </li>
-<li>Function code: 함수 코드 (03: Read Holding Registers /16: Write Multiple registers)
-<li>Address: 슬레이브 레지스터 시작 주소</li>
-<li>Length: 슬레이브 레지스터 길이</li>
-<li>Scan Rate: 통신 주기 (단위: 5msec) </li>
-<li>Value: 03: 읽어오는 데이터 값/16: 쓰여지는 데이터 값 (예) 1개 데이터: 0 / 3개 데이터 : 0,1,2 </li>
-<li>Timeout: 타임 아웃 (단위:msec) </li>
-<li>Connect: 연결 및 데이터 송수신 시작</li>
-<li>Reset: 선택된 파라미터의 이전 저장 값으로 초기화 & value(read)의 경우, 읽어 온 값 갱신 </li>
-<li>ResetAll: 모든 파라미터들의 이전 저장 값으로 초기화</li>
+<li>Serial port: Serial communication port number (default value: 2)</li>
+<li>Slave ID: Slave device ID</li>
+<li>Function code: Function code (03: Read Holding Registers /16: Write Multiple registers)
+<li>Address: Slave register start address</li>
+<li>Length: Slave register length</li>
+<li>Scan Rate: Communication cycle (unit: 5 msec)</li>
+<li>Value: 03: Data value to be read/16: Data value to be written (example) 1 unit of data: 0 / 3 units of data: 0,1,2</li>
+<li>Timeout: Time out (unit: msec)</li>
+<li>Connect: Connects and starts transmitting and receiving data</li>
+<li>Reset: Initializes to the previously saved value of the selected parameter. For an & value (read), the value that was read should be updated.</li>
+<li>ResetAll: Initializes to the previously saved values of all parameters.</li>

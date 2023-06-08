@@ -1,6 +1,6 @@
-﻿# 3. 마스터 운영
-모드버스 마스터의 경우 Hi6 개방화 플랫폼의 app 형태로 개발되었습니다.
+﻿# 3. Operating the Master
+The Modbus Master was developed as an app for the Hi6 open platform.
 
-app의 정보는 **\[서비스 > 10: 앱(app) ]** 에서 위치를 Main 으로 변경 후 확인할 수 있습니다.
+You can check the app information after changing its location to Main in **\[Service > 10: App.]**
 
 ![](../_assets/image29.png)

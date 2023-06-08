@@ -1,21 +1,21 @@
-﻿# 3.1.1.4 모드버스 마스터 상태: status
+﻿# 3.1.1.4 Status of the Modbus Master: status
 
-모드버스 통신 상태를 확인 하기 위한 명령문 입니다.
-앞서 선언한 마스터를 가져와 수행하게 됩니다.
+This is a statement for checking the Modbus communication status.
+It will perform upon loading the master declared earlier.
 
-#### <mark style="color:green;">문법</mark>
+#### <mark style="color:green;">Grammar</mark>
 
 ```
 var status = master.staus
 ```
 
-#### <mark style="color:green;">리턴값</mark>
-- 모드버스 통신 상태
+#### <mark style="color:green;">Return value</mark>
+- Status of the Modbus communication
 
-#### <mark style="color:green;">파라미터</mark>
+#### <mark style="color:green;">Parameter</mark>
 
-|파라미터| 설명                                                                                                    
+|Parameter| Description                                                                                                    
 | :---: | ------------------------------------------------------------------------------------------------------- 
-|   state  | <p>통신상태</p><ul><li>초기상태 (연결 안됨) = 0</li><li>정상 = 1</li><li>통신에러 = -1</li><li>시간초과 에러 = -2</li></ul>    | 
+|   state  | <p>Communication status</p><ul><li>Default state (no connection) = 0</li><li>Normal = 1</li><li>Communication error = -1</li><li>Timeout error = -2</li></ul>    | 
 
 

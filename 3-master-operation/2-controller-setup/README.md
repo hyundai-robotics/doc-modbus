@@ -1,7 +1,7 @@
-﻿# 3.2 제어기 설정
+﻿# 3.2 Setting the Controller
 
-제어기에서의 설정을 통하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. Scan Rate를 설정함으로써 주기적으로 데이터를 송수신하는 것이 가능합니다. 해당 설정을 통하여 일대일 마스터와 슬레이브 설정이 가능합니다.
+By setting up the controller, you can configure a Modbus master query and send it to a slave. You can transmit and receive data periodically by setting a scan rate. Through the settings, you can set the master and slave one-to-one.
 
-모드버스 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus]** 화면에서 통신 방식에 따라 설정할 수 있습니다.
+You can set the Modbus master in the **\[Setting > 2: Control parameter > Modbus]** screen according to the communication method.
 
-설정파라미터가 보여지지 않는 경우 **\[서비스 > 10: 앱(app) > MAIN]** 화면에서 시작 및 상태를 확인 후 가동시켜 주십시오. 
+If the set parameter is not shown, check the Start and Status data in the **\[Service> 10: App > Main]** screen before performing the operation.  

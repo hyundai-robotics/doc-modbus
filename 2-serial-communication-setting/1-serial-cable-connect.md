@@ -1,5 +1,5 @@
-﻿# 2.1 시리얼 케이블 연결
+﻿# 2.1 Connecting the Serial Cable
 
-시리얼 케이블은 하기의 그림과 같이 COM2 포트에 직접 연결합니다.
+Connect the serial cable directly to the COM2 port, as shown in the figure below.
 
 ![](../_assets/image7.jpeg)

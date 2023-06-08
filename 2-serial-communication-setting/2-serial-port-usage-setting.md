@@ -1,6 +1,6 @@
-﻿# 2.2 시리얼 포트 용도 설정
+﻿# 2.2 Setting the Serial Port Usage
 
-시리얼 포트의 용도를 MODBUS 로 설정하는 것은 **\[설정 > 2: 제어 파라미터 > 3: 시리얼 포트]** 화면의 **\[일반 설정]** 탭에서 다음과 같이 설정할 수 있습니다.
+You can set the usage of the serial port to the Modbus by applying the settings as follows in the **\[General Setting]** tab of the **\[Setting > 2: Control Parameter > 3: Serial Port]** screen.
 
 ![](../_assets/image8.png)
 
