@@ -21,7 +21,7 @@ master.write(salve_id,addr,length,values,timeout)
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | slave_id | Slave device id (int)                                         | <p>1</p>(0–255) |
 |   addr  | <p>Slave register start address (int)</p> (use decimal numbers, not hex)      |  0  |
-|  length  | Slave register length (int)                                                        | 3 |
+|  length  | Slave register length (int, 1<= length <= 123)                                 | 3 |
 |  values  |  Input data (array)                                                      | [0,1,2] |
 |  timeout    |[Option]  Timeout (int), Unit: msec                                                      | 5000 |
 |  addr_on_timeout    |[Option]  Escape address in case of timeout (int or str)                                                      | 99 or S1 |

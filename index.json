@@ -7,101 +7,101 @@
 	{
 		"link": "1-intro/README.md",
 		"char_ofs": 447,
-		"byte_ofs": 452
+		"byte_ofs": 467
 	},
 	{
 		"link": "1-intro/1-preparatory-information.md",
 		"char_ofs": 462,
-		"byte_ofs": 472
+		"byte_ofs": 487
 	},
 	{
 		"link": "1-intro/2-modbus-func.md",
 		"char_ofs": 673,
-		"byte_ofs": 692
+		"byte_ofs": 707
 	},
 	{
 		"link": "2-serial-communication-setting/README.md",
 		"char_ofs": 6009,
-		"byte_ofs": 6156
+		"byte_ofs": 6171
 	},
 	{
 		"link": "2-serial-communication-setting/1-serial-cable-connect.md",
 		"char_ofs": 6051,
-		"byte_ofs": 6203
+		"byte_ofs": 6218
 	},
 	{
 		"link": "2-serial-communication-setting/2-serial-port-usage-setting.md",
 		"char_ofs": 6197,
-		"byte_ofs": 6357
+		"byte_ofs": 6372
 	},
 	{
 		"link": "2-serial-communication-setting/3-modbus-environment-setting.md",
 		"char_ofs": 6459,
-		"byte_ofs": 6629
+		"byte_ofs": 6644
 	},
 	{
 		"link": "3-master-operation/README.md",
 		"char_ofs": 7010,
-		"byte_ofs": 7194
+		"byte_ofs": 7209
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/README.md",
 		"char_ofs": 7233,
-		"byte_ofs": 7425
+		"byte_ofs": 7440
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/1-modbus-command/README.md",
 		"char_ofs": 7494,
-		"byte_ofs": 7692
+		"byte_ofs": 7707
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/1-modbus-command/1-modbus-master-command.md",
 		"char_ofs": 7678,
-		"byte_ofs": 7881
+		"byte_ofs": 7896
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/1-modbus-command/2-modbus-read-command.md",
 		"char_ofs": 8919,
-		"byte_ofs": 9149
+		"byte_ofs": 9164
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/1-modbus-command/3-modbus-write-command.md",
-		"char_ofs": 10285,
-		"byte_ofs": 10547
+		"char_ofs": 10281,
+		"byte_ofs": 10558
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/1-modbus-command/4-modbus-status-command.md",
-		"char_ofs": 11925,
-		"byte_ofs": 12221
+		"char_ofs": 11917,
+		"byte_ofs": 12228
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/2-sample-program/README.md",
-		"char_ofs": 12738,
-		"byte_ofs": 13058
+		"char_ofs": 12730,
+		"byte_ofs": 13065
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/2-sample-program/1-ethernet-communication.md",
-		"char_ofs": 12763,
-		"byte_ofs": 13088
+		"char_ofs": 12755,
+		"byte_ofs": 13095
 	},
 	{
 		"link": "3-master-operation/1-robot-lang/2-sample-program/2-serial-communication.md",
-		"char_ofs": 14431,
-		"byte_ofs": 14812
+		"char_ofs": 14423,
+		"byte_ofs": 14819
 	},
 	{
 		"link": "3-master-operation/2-controller-setup/README.md",
-		"char_ofs": 16111,
-		"byte_ofs": 16546
+		"char_ofs": 16103,
+		"byte_ofs": 16553
 	},
 	{
 		"link": "3-master-operation/2-controller-setup/1-modbus-setup-tcp.md",
-		"char_ofs": 16652,
-		"byte_ofs": 17097
+		"char_ofs": 16644,
+		"byte_ofs": 17104
 	},
 	{
 		"link": "3-master-operation/2-controller-setup/2-modbus-setup-rtu.md",
-		"char_ofs": 18069,
-		"byte_ofs": 18545
+		"char_ofs": 18061,
+		"byte_ofs": 18552
 	}
 ]
