@@ -33,11 +33,18 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 | **Operation method** | **Serial communication** |               **Ethernet communication**               |
 | :-------: | :--------: | :------------------------------------: |
 | Operation of a master |  <p>Statements in robot language</p><p>Settings of the controller  </p> |                <p>Statements in robot language</p><p>Settings of the controller</p>               |
-|  Operation of a slave|   Settings of the controller   | <p>IP: Settings of the controller</p><p>Port: 502, 5000, 5001 (Fixed)</p> |
+|  Operation of a slave|   Settings of the controller   | <p>IP: Settings of the controller</p><p>Port: 502(Fixed), possible 2 ports add</p> |
 
 
 
-### <mark style="color:green;">4. Transmission mode</mark>
+### <mark style="color:green;">4. Modbus TCP slave setting</mark>
+    You can add up to 3 slaves from the system/Control parameter/Network/Service/Modbus slave menu. and it is also possible to monitor the current communication status. 
+
+![](../_assets/image30.png)
+
+
+
+### <mark style="color:green;">5. Transmission mode</mark>
 
 | **Operation method** |              **Serial communication**              | **Ethernet commuication** |
 | :-------: | :----------------------------------: | :--------: |
@@ -46,7 +53,7 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 
 
-### <mark style="color:green;">5. Functions supported</mark>
+### <mark style="color:green;">6. Functions supported</mark>
 
 | **Operation method** | 　　　　　　　　**Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -55,12 +62,12 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 
 
-### <mark style="color:green;">6. Slave address</mark>
+### <mark style="color:green;">7. Slave address</mark>
 
 * Slave address: 1–247
 * Supports the broadcast function that operates all slaves regardless of the set address if the slave address of the command is 0.
 
-### <mark style="color:green;">7. Serial communication connection</mark>
+### <mark style="color:green;">8. Serial communication connection</mark>
 
 * Connector (D-sub 9pin female)
 
@@ -70,7 +77,7 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 ![](../_assets/image6.png)
 
-### <mark style="color:green;">8. Address map</mark>
+### <mark style="color:green;">9. Address map</mark>
 
 ![](<../_assets/image_10.png>)
 
@@ -102,6 +109,6 @@ For Modbus transmissions, the endian will be 16-bit aligned big-endian.
 In other words, the above transmission will occur in the order of 0x80, 0x00, 0x40, and 0xD0.
 {% endhint %}
 
-### <mark style="color:green;">9. SW memory map</mark>&#x20;
+### <mark style="color:green;">10. SW memory map</mark>&#x20;
 
 <mark style="color:red;">\*This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."</mark>
