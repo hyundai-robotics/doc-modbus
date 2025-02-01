@@ -42,6 +42,19 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 ![](../_assets/image30.png)
 
+*   **Port No.**
+
+    Sets the port for MODBUS TCP communication. Each slave must be set to a different port number.
+
+
+*   **Timeout**
+
+    Sets the time to check the MODBUS TCP communication connection status.
+
+
+*   **Max connection**
+
+    Sets the maximum number of connections for the master that can be connected to each slave. Currently, you can get up to three.
 
 
 ### <mark style="color:green;">5. Transmission mode</mark>
