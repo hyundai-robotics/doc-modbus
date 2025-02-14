@@ -21,87 +21,27 @@
 	},
 	{
 		"link": "2-serial-communication-setting/README.md",
-		"char_ofs": 6009,
-		"byte_ofs": 6171
+		"char_ofs": 6569,
+		"byte_ofs": 6751
 	},
 	{
 		"link": "2-serial-communication-setting/1-serial-cable-connect.md",
-		"char_ofs": 6051,
-		"byte_ofs": 6218
+		"char_ofs": 6611,
+		"byte_ofs": 6798
 	},
 	{
 		"link": "2-serial-communication-setting/2-serial-port-usage-setting.md",
-		"char_ofs": 6197,
-		"byte_ofs": 6372
+		"char_ofs": 6757,
+		"byte_ofs": 6952
 	},
 	{
 		"link": "2-serial-communication-setting/3-modbus-environment-setting.md",
-		"char_ofs": 6459,
-		"byte_ofs": 6644
+		"char_ofs": 7019,
+		"byte_ofs": 7224
 	},
 	{
 		"link": "3-master-operation/README.md",
-		"char_ofs": 7010,
-		"byte_ofs": 7209
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/README.md",
-		"char_ofs": 7233,
-		"byte_ofs": 7440
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/1-modbus-command/README.md",
-		"char_ofs": 7494,
-		"byte_ofs": 7707
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/1-modbus-command/1-modbus-master-command.md",
-		"char_ofs": 7678,
-		"byte_ofs": 7896
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/1-modbus-command/2-modbus-read-command.md",
-		"char_ofs": 8919,
-		"byte_ofs": 9164
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/1-modbus-command/3-modbus-write-command.md",
-		"char_ofs": 10281,
-		"byte_ofs": 10558
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/1-modbus-command/4-modbus-status-command.md",
-		"char_ofs": 11917,
-		"byte_ofs": 12228
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/2-sample-program/README.md",
-		"char_ofs": 12730,
-		"byte_ofs": 13065
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/2-sample-program/1-ethernet-communication.md",
-		"char_ofs": 12755,
-		"byte_ofs": 13095
-	},
-	{
-		"link": "3-master-operation/1-robot-lang/2-sample-program/2-serial-communication.md",
-		"char_ofs": 14423,
-		"byte_ofs": 14819
-	},
-	{
-		"link": "3-master-operation/2-controller-setup/README.md",
-		"char_ofs": 16103,
-		"byte_ofs": 16553
-	},
-	{
-		"link": "3-master-operation/2-controller-setup/1-modbus-setup-tcp.md",
-		"char_ofs": 16644,
-		"byte_ofs": 17104
-	},
-	{
-		"link": "3-master-operation/2-controller-setup/2-modbus-setup-rtu.md",
-		"char_ofs": 18061,
-		"byte_ofs": 18552
+		"char_ofs": 7570,
+		"byte_ofs": 7789
 	}
 ]
