@@ -55,7 +55,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
 | :-------: | :--------: | :------------------------------------: |
-| Master 운영 |  <p>로봇 언어 명령문</p><p>제어기 설정</p> |                <p>로봇 언어 명령문</p><p>제어기 설정</p>               |
+| Master 운영 | <p>제어기 설정</p> | <p>제어기 설정</p>               |
 |  Slave 운영 |   제어기 설정   | <p>IP: 제어기 설정</p><p>Port: 502(고정), 2개 추가 가능 </p> |
 
 
@@ -64,6 +64,19 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 ![](../_assets/image30.png)
 
+*   **포트 번호**
+
+    MODBUS TCP 통신을 위한 포트를 설정합니다. 각각의 슬래이브는 반드시 서로 다른 포트 번호로 설정되어야 합니다.
+
+
+*   **타임 아웃**
+
+    MODBUS TCP 통신 연결 상태를 확인하기 위한 시간을 설정합니다.
+
+
+*   **최대 연결**
+
+    각각의 슬래이브에 연결할 수 있는 마스터의 최대 연결 수를 설정합니다. 현재는 최대 3개까지 가능합니다.
 
 
 ### <mark style="color:green;">5. 전송 모드</mark>
@@ -162,274 +175,4 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 * **슬레이브 ID**: 모드버스 시리얼의 Slave 로 통신하기 위한 ID 를 설정합니다.
 * **모드**: 모드버스 시리얼의 Slave 로 통신하기 위한 mode를 설정합니다.
 # 3. 마스터 운영
-모드버스 마스터의 경우 Hi6 개방화 플랫폼의 app 형태로 개발되었습니다.
-
-app의 정보는 **\[서비스 > 10: 앱(app) ]** 에서 위치를 Main 으로 변경 후 확인할 수 있습니다.
-
-![](../_assets/image29.png)# 3.1 로봇 언어
-
-로봇언어 명령문을 사용하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. 해당 명령문을 실행할 때 데이터 송수신이 이루어지며 만약 주기적으로 데이터를 송수신하는 것이 필요하다면 제어기 내부 설정을 통하여 통신할 수 있습니다.
-# 3.1.1 명령어
-
-로봇 언어로 모드버스 마스터 통신을 하는 명령문 입니다.
-모드버스 통신에 대한 이해를 위해서 별도로 학습하시기 바랍니다.# 3.1.1.1 모드버스 마스터 생성자: Modbus
-
-모드버스 마스터를 선언 하는 명령문 입니다.
-
-해당 마스터를 활용하여 통신을 수행할 수 있으므로 읽기/쓰기 이전에 선언되어야합니다.
-
-반드시 사용하시기 전에 modbus 모듈을 가져와서 사용하시길 바랍니다. (예: import modbus)
-#### <mark style="color:green;">문법</mark>
-
-```
-var master = modbus.Modbus(protocol,port,ip_addr)
-```
-#### <mark style="color:green;">리턴값</mark>
-- 모드버스 마스터 객체
-
-#### <mark style="color:green;">파라미터</mark>
-
-|파라미터| 설명                                                                                                    |    예    |
-| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| protocol | <p>통신프로토콜 타입(str)</p><ul><li>tcp</li><li>rtu</li></ul>                                         | "tcp" or "rtu" |
-|   port  | <p>통신 포트(int)</p><ul><li>tcp: tcp 포트 번호 </li><li>rtu: 시리얼 포트번호 (0~2)</li></ul>        |  502(tcp) or 2(rtu)   |
-| ip_addr  | [tcp만 사용] 모드버스 TCP 슬레이브 장치 IP 주소(str)                                                       | "192.168.1.1" |
-
-
-
-# 3.1.1.2 데이터 읽기: read(function code: 03)
-
-슬레이브 장치의 레지스터 데이터를 읽기 위한 명령문 입니다.
-
-슬레이브의 레지스터 주소를 시작으로 레지스터 길이만큼을 읽어옵니다. 
-
-앞서 선언한 마스터를 가져와 수행하게 됩니다.
-
-#### <mark style="color:green;">문법</mark>
-
-```
-var value = master.read(salve_id,addr,length,timeout,addr_on_timeout)
-```
-
-#### <mark style="color:green;">리턴값</mark>
-- 송신 데이터(array type)
-
-#### <mark style="color:green;">파라미터</mark>
-
-|파라미터| 설명                                                                                                    |    예    |
-| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| slave_id | 슬레이브 장치 id (int)                                         | <p>1</p>(0~255) |
-|   addr  | <p>슬레이브 레지스터 시작 주소 (int)</p> (use devcimal numbers, not hex)      |  0  |
-|  length  | 슬레이브 레지스터 길이 (int, 1<= 길이 <= 125)                                                   | 3 |
-|  timeout    |[선택사항]  타임아웃 (int), 단위: msec                                                      | 5000 |
-|  addr_on_timeout    |[선택사항]  타임아웃 시 퇴피주소 (int or str)                                                      | 99 or S1 |
-
-# 3.1.1.3 데이터 쓰기: write(function code: 16)
-
-슬레이브 장치의 레지스터에 데이터를 쓰기 위한 명령문 입니다.
-
-슬레이브의 레지스터 주소를 시작으로 레지스터 길이만큼 데이터를 쓰게 됩니다.
-
-입력 데이터 길이보다 슬레이브 레지스터 길이가 작은 경우 0번지 부터 길이만큼 입력되게 되고,
-반대로 슬레이브 레지스터 길이가 큰 경우에는 입력 데이터 길이 만큼만 쓰여지게 됩니다. 
-
-앞서 선언한 마스터를 가져와 수행하게 됩니다.
-
-#### <mark style="color:green;">문법</mark>
-
-``` python
-master.write(salve_id,addr,length,values,timeout)
-```
-
-#### <mark style="color:green;">파라미터</mark>
-
-|파라미터| 설명                                                                                                    |    예    |
-| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| slave_id | 슬레이브 장치 id (int)                                         | <p>1</p>(0~255) |
-|   addr  | <p>슬레이브 레지스터 시작 주소 (int)</p> (use devcimal numbers, not hex)      |  0  |
-|  length  | 슬레이브 레지스터 길이 (int, 1<= 길이 <= 123)                                | 3 |
-|  values  |  입력 데이터(array)                                                      | [0,1,2] |
-|  timeout    |[선택사항]  타임아웃 (int), 단위: msec                                                      | 5000 |
-|  addr_on_timeout    |[선택사항]  타임아웃 시 퇴피주소 (int or str)                                                      | 99 or S1 |
-
-
-# 3.1.1.4 모드버스 마스터 상태: status
-
-모드버스 통신 상태를 확인 하기 위한 명령문 입니다.
-앞서 선언한 마스터를 가져와 수행하게 됩니다.
-
-#### <mark style="color:green;">문법</mark>
-
-```
-var status = master.staus
-```
-
-#### <mark style="color:green;">리턴값</mark>
-- 모드버스 통신 상태
-
-#### <mark style="color:green;">파라미터</mark>
-
-|파라미터| 설명                                                                                                    
-| :---: | ------------------------------------------------------------------------------------------------------- 
-|   state  | <p>통신상태</p><ul><li>초기상태 (연결 안됨) = 0</li><li>정상 = 1</li><li>통신에러 = -1</li><li>시간초과 에러 = -2</li></ul>    | 
-
-
-# 3.1.2 샘플 프로그램
-
-# 3.1.2.1 이더넷 통신
-
-하기는 onRobot gripper 를 제어하기 위한 샘플 프로그램으로 Hi6 제어기와 onRobot gripper 는 Modbus tcp 로 통신합니다. 여기서 Hi6 제어기는 master 로 운영되며 gripper 가 slave 로 운영됩니다.
-
-```python
-Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
-    
-     # modbus 모듈 import 후, 생성자로 modbus master 객체 생성(통신 타입 및 포트 번호, ip 주소 설정) 
-     import modbus
-     var master=modbus.Modbus("tcp",502,"192.168.1.1")
-
-     # 전송 데이터
-     global arr
-     arr=Array(300)
-     arr[0]=300 #force(0~400)
-     arr[1]=200 #width (0~1100)
-     arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
-     
-     # write 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
-     master.write(65,0,3,arr,3000,99)
-
-     # 통신 상태 확인 (0: 연결안됨(초기상태), 1: 정상 상태, -1: 통신 실패, -2: 타임아웃 에러 )
-     if master.status<0
-       print "write communication error"
-       stop
-     endif
-
-     # read 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
-     var recv_data=master.read(65,267,2,3000,99)
-     if master.status<0
-       print "read communication error"
-       stop
-     endif
-
-     # 수신 데이터 처리
-     arr[267]=recv_data[0] #actual width
-     arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
-     if arr[268]<1 and arr[268]>7
-       print "check the gripper status"
-       stop
-     endif
-     end
-
-  99 print "timeout"
-
-
-
-```
-
-# 3.1.2.2 시리얼 통신
-
-하기는 onRobot gripper를 시리얼 통신으로 제어한다고 가정하였을 때 샘플 프로그램입니다. 먼저 시리얼 통신 설정에서 포트 용도를 **\[MODBUS]**로 모드버스의Operation은 **\[master]** 로 설정되어야 합니다.
-
-
-``` python
-Hyundai Robot Job File; { version: 1.6, mech_type: "368(HA006A-01)", total_axis: 6, aux_axis: 0 }
-     
-     # modbus 모듈 import 후, 생성자로 modbus master 객체 생성(통신 타입 및 포트 번호 설정) 
-     import modbus
-     var master=modbus.Modbus("rtu",2)
-     
-     # 전송 데이터
-     global arr
-     arr=Array(300)
-     arr[0]=300 #force(0~400)
-     arr[1]=200 #width (0~1100)
-     arr[2]=1 #control(1:grip, 8: stop, 16: offset grip)
-     
-     # write 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
-     master.write(65,0,3,arr,3000,99)
-     
-     # 통신 상태 확인 (0: 연결안됨(초기상태), 1: 정상 상태, -1: 통신 실패, -2: 타임아웃 에러 )
-     if master.status<0
-       print "write communication error"
-       stop
-     endif
-     
-     # read 동작 수행, (선택 옵션) 3000msec 초과시 99행으로 분기 처리
-     var recv_data=master.read(65,267,2,3000,99)
-     if master.status<0
-       print "read communication error"
-       stop
-     endif
-
-     # 수신 데이터 처리
-     arr[267]=recv_data[0] #actual width
-     arr[268]=recv_data[1] #status (0: busy, 1:grip detected ,,,etc)
-     if arr[268]<1 and arr[268]>7
-       print "check the gripper status"
-       stop
-     endif
-     end
-
-  99 print "timeout"
-
-```
-# 3.2 제어기 설정
-
-제어기에서의 설정을 통하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. Scan Rate를 설정함으로써 주기적으로 데이터를 송수신하는 것이 가능합니다. 해당 설정을 통하여 일대일 마스터와 슬레이브 설정이 가능합니다.
-
-모드버스 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus]** 화면에서 통신 방식에 따라 설정할 수 있습니다.
-
-설정파라미터가 보여지지 않는 경우 **\[서비스 > 10: 앱(app) > MAIN]** 화면에서 시작 및 상태를 확인 후 가동시켜 주십시오. 
-# 3.2.1 모드버스 TCP 마스터 설정
-
-모드버스 TCP 마스터 쿼리를 구성하고 이를 슬레이브에 전송하는 설정입니다.
-
-해당 마스터를 활용하여 통신을 수행할 수 있습니다.
-
-
-모드버스 TCP 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 1: Modbus TCP Master settings]** 화면에서 설정할 수 있습니다.
-
-{% hint style="warning" %}
-변경된 파라미터로 통신하기 위해서는 [확인] 혹은 [적용(shift + 확인)] 을 통해 변경 내용을 반영하신 뒤에 올바른 작업을 하실 수 있습니다.
-{% endhint %}
-
-![](../../_assets/image27.png)
-
-<li>IP address: 슬레이브 장치 IP 주소</li>
-<li>Port: TCP 통신 포트 번호 (기본값:502)</li>
-<li>Salve ID: 슬레이브 장치 ID </li>
-<li>Function code: 함수 코드 (03: Read Holding Registers /16: Write Multiple registers)
-<li>Address: 슬레이브 레지스터 시작 주소</li>
-<li>Length: 슬레이브 레지스터 길이</li>
-<li>Scan Rate: 통신 주기 (단위: 5msec) </li>
-<li>Value: 03: 읽어오는 데이터 값/16: 쓰여지는 데이터 값 (예) 1개 데이터: 0 / 3개 데이터 : 0,1,2 </li>
-<li>Timeout: 타임 아웃 (단위:msec) </li>
-<li>Connect: 연결 및 데이터 송수신 시작</li>
-<li>Reset: 선택된 파라미터의 이전 저장 값으로 초기화 & value(read)의 경우, 읽어 온 값 갱신 </li>
-<li>ResetAll: 모든 파라미터들의 이전 저장 값으로 초기화</li>
-
-# 3.2.2 모드버스 RTU 마스터 설정
-
-모드버스 RTU 마스터 쿼리를 구성하고 이를 슬레이브에 전송하는 설정입니다.
-
-해당 마스터를 활용하여 통신을 수행할 수 있습니다.
-
-
-모드버스 RTU 마스터를 설정하는 것은 **\[설정 > 2: 제어 파라미터 > Modbus > 2: Modbus RTU Master settings]** 화면에서 설정할 수 있습니다.
-
-{% hint style="warning" %}
-변경된 파라미터로 통신하기 위해서는 [확인] 혹은 [적용(shift + 확인)] 을 통해 변경 내용을 반영하신 뒤에 올바른 작업을 하실 수 있습니다.
-{% endhint %}
-
-![](../../_assets/image28.png)
-
-<li>Serial port: 시리얼 통신 포트 번호 (기본값: 2)</li>
-<li>Salve ID: 슬레이브 장치 ID </li>
-<li>Function code: 함수 코드 (03: Read Holding Registers /16: Write Multiple registers)
-<li>Address: 슬레이브 레지스터 시작 주소</li>
-<li>Length: 슬레이브 레지스터 길이</li>
-<li>Scan Rate: 통신 주기 (단위: 5msec) </li>
-<li>Value: 03: 읽어오는 데이터 값/16: 쓰여지는 데이터 값 (예) 1개 데이터: 0 / 3개 데이터 : 0,1,2 </li>
-<li>Timeout: 타임 아웃 (단위:msec) </li>
-<li>Connect: 연결 및 데이터 송수신 시작</li>
-<li>Reset: 선택된 파라미터의 이전 저장 값으로 초기화 & value(read)의 경우, 읽어 온 값 갱신 </li>
-<li>ResetAll: 모든 파라미터들의 이전 저장 값으로 초기화</li>
+Hi6 개방화 플랫폼의 모드버스 마스터 app 은 현재 지원하지 않습니다.
