@@ -55,32 +55,11 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 | **Operation method** | **Serial communication** |               **Ethernet communication**               |
 | :-------: | :--------: | :------------------------------------: |
-| Operation of a master | <p>Settings of the controller  </p> | <p>Settings of the controller</p>               |
+| Operation of a master | <p>Robot language command <br>(Controller setup required)  </p> | <p>Robot language command <br>(Controller setup required)</p>               |
 |  Operation of a slave|   Settings of the controller   | <p>IP: Settings of the controller</p><p>Port: 502(Fixed), possible 2 ports add</p> |
 
 
-
-### <mark style="color:green;">4. Modbus TCP slave setting</mark>
-    You can add up to 3 slaves from the system/Control parameter/Network/Service/Modbus slave menu. and it is also possible to monitor the current communication status. 
-
-![](../_assets/image30.png)
-
-*   **Port No.**
-
-    Sets the port for MODBUS TCP communication. Each slave must be set to a different port number.
-
-
-*   **Timeout**
-
-    Sets the time to check the MODBUS TCP communication connection status.
-
-
-*   **Max connection**
-
-    Sets the maximum number of connections for the master that can be connected to each slave. Currently, you can get up to three.
-
-
-### <mark style="color:green;">5. Transmission mode</mark>
+### <mark style="color:green;">4. Transmission mode</mark>
 
 | **Operation method** |              **Serial communication**              | **Ethernet commuication** |
 | :-------: | :----------------------------------: | :--------: |
@@ -89,7 +68,7 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 
 
-### <mark style="color:green;">6. Functions supported</mark>
+### <mark style="color:green;">5. Functions supported</mark>
 
 | **Operation method** | 　　　　　　　　**Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -98,22 +77,13 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 
 
 
-### <mark style="color:green;">7. Slave address</mark>
+### <mark style="color:green;">6. Slave address</mark>
 
 * Slave address: 1–247
-* Supports the broadcast function that operates all slaves regardless of the set address if the slave address of the command is 0.
 
-### <mark style="color:green;">8. Serial communication connection</mark>
+<br>
 
-* Connector (D-sub 9pin female)
-
-![](../_assets/image5.png)
-
-* Pin map
-
-![](../_assets/image6.png)
-
-### <mark style="color:green;">9. Address map</mark>
+### <mark style="color:green;">7. Address map</mark>
 
 ![](<../_assets/image_10.png>)
 
@@ -145,24 +115,36 @@ For Modbus transmissions, the endian will be 16-bit aligned big-endian.
 In other words, the above transmission will occur in the order of 0x80, 0x00, 0x40, and 0xD0.
 {% endhint %}
 
-### <mark style="color:green;">10. SW memory map</mark>&#x20;
+### <mark style="color:green;">8. SW memory map</mark>&#x20;
 
 <mark style="color:red;">\*This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."</mark>
-# 2. Setting Up the Serial Communication
+# 2. Modbus serial
 
-# 2.1 Connecting the Serial Cable
+This is about slave or master operation via Modbus serial communication.
+# 2.1 Connecting the serial cable
 
 Connect the serial cable directly to the COM2 port, as shown in the figure below.
 
 ![](../_assets/image7.jpeg)
-# 2.2 Setting the Serial Port Usage
 
-You can set the usage of the serial port to the Modbus by applying the settings as follows in the **\[General Setting]** tab of the **\[Setting > 2: Control Parameter > 3: Serial Port]** screen.
+
+
+* Connector (D-sub 9pin female)
+
+![](../_assets/image5.png)
+
+* Pin map
+
+![](../_assets/image6.png)
+# 2.2 Serial port usage setting 
+
+You can set the usage of the serial port to the Modbus by applying the settings as follows in the **\[General]** tab of the **\[System > 2: Control parameter > 3: Serial port]** screen. <br>
+**\[Modbus]** tab is enable.
 
 ![](../_assets/image8.png)
 
 
-# 2.3 Setting the Modbus Environment
+# 2.3 Modbus environment setting 
 
 The details of the Modbus can be set in the **\[Modbus]** tab as follows.
 
@@ -170,8 +152,169 @@ The details of the Modbus can be set in the **\[Modbus]** tab as follows.
 
 *   **Operation**: Select whether to operate as the master or the slave.
 
-    In cases of operations as the master, the slave ID and mode will not be used, as the execution will be performed by commands in robot language.
-* **Slave ID**: Set the ID for communications as the slave of the Modbus serial communication.
-* **Mode**: Set the mode for communications as the slave of the Modbus serial communication.
-# 3. Operating the Master
-The Modbus Master app is not currently supported on the Hi6 Open Platform.
+    In cases of operations as the master, the slave ID and mode will not be used, as the execution will be performed by commands in robot language. <br>
+    In cases of operations as the slave, the controller responds to master requests, so it operates only with the settings on the screen. <br> 
+* **Slave ID**: Set the ID for communications as the slave of the modbus serial communication.
+* **Mode**: Set the mode for communications as the slave of the modbus serial communication.
+# 2.4 Modbus master operation
+
+You can use robot language statements to construct modbus master queries and send them to slaves. <br>
+When the statement is executed, data is transmitted and received. <br>
+<br>
+
+#### <mark style="color:green;">Grammer</mark>
+
+```
+modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr
+```
+
+#### <mark style="color:green;">Parameters</mark>
+
+|Parameters| Description                                                                                                    |    example    |
+| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
+| _sci2 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
+| sid  | Slave ID(1~247) (int)                                                      | 1 |
+| fc | <p>Function code (int)</p><ul><li>3 : read holding registers (multiple)</li><li>16 : write holding registers (multiple)</li></ul>                                         | 3 or 16 |
+| addr  | Start address of slave (0~65534) (int)                                                       | 0 |
+| len  | Quantity of data (1~127) (int)                                                     | 10 |
+| wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
+| var  | Array variable of integer type, If not specified, matches the slave address of the controller.                                                        | arr |
+
+<br>
+
+#### <mark style="color:green;">Sample job</mark>
+
+
+``` python
+Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis: -1 }
+     var arr # Local variable definition
+     arr=Array(20) # Defined as an array variable of int type
+     modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr # Read 10 data from address 0 and assign them to the arr variable
+     print arr[0] # Print the 0th index value of the arr variable
+     delay 2 # Time delay
+     arr[0]=arr[0]+1 # Add 1 to the 0th index value of the arr variable
+     modbus _sci2,sid=1,fc=16,addr=0,len=10,wait=3.0,var=arr # Write the arr variable value to 10 data from address 0
+     delay 2 # Time delay
+     end
+
+```
+
+# 3. Modbus TCP
+
+This is about slave or master operation via Modbus TCP communication. 
+# 3.2 Network setting
+
+To use ethernet communication, first set the network address corresponding to the connected LAN port on the **\[System > 2: Control parameter > 9: Network > 1: Environment setting]** screen.
+
+![](../_assets/image31.png)
+
+
+# 3.2 Modbus slave setting
+
+Set on the **\[System > 2: Control parameter > 9: Network > 2: Service > 1: Modbus slave]** screen. <br>
+Up to three slaves can be used, and the current communication status can also be monitored. <br>
+When operating as a slave, the controller responds to master requests, so it operates only with the settings on the screen. <br>
+
+![](../_assets/image30.png)
+
+*   **Port No.**
+
+    Sets the port for MODBUS TCP communication. <br>
+    Each slave must be set to a different port number.
+
+
+*   **Timeout**
+
+    Sets the time to check the MODBUS TCP communication connection status. <br>
+    If there is no service request from the master for a specified period of time, the connection is forcibly terminated.
+
+
+*   **Max connection**
+
+    Sets the maximum number of connections for the master that can be connected to each slave. <br>
+    Currently, you can get up to three.
+# 3.3 Ethernet communication setting
+ 
+Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
+
+Set on **\[System > 2: Control parameter > 9: Network > 2: Service > 4: Ethernet communication]** screen. <br>
+Up to five Ethernet objects can be created and used, and the current communication status can also be monitored. <br>
+Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
+
+![](../_assets/image32.png)
+
+You can force close the socket of the corresponding Ethernet object with the [Close] button, and perform a communication connection with the [Connect] button. <br>
+When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
+
+
+*   **Name**
+
+    The name of the Ethernet communication object. Each name must be set to "enet0" ~ "enet4".
+
+
+*   **Protocol**
+
+    Select the communication protocol. For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
+
+
+*   **IP address**
+
+    Sets the IP address used by the slave. 
+
+
+*   **Local port**
+
+    Sets the local port number. Modbus communication uses port 502 by default.
+
+
+*   **Remote port**
+
+    Sets the remote port number. Modbus communication uses port 502 by default.
+
+
+*   **State**
+
+    Displays the status of the communication connection. 
+# 3.4 Modbus master operation
+
+You can use robot language statements to construct modbus master queries and send them to slaves. <br>
+When the statement is executed, data is transmitted and received. <br>
+<br>
+
+#### <mark style="color:green;">Grammer</mark>
+
+```
+modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr
+```
+
+#### <mark style="color:green;">Parameters</mark>
+
+|Parameters| Description                                                                                                    |    example    |
+| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
+| _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
+| sid  | Slave ID(1~247) (int)                                                      | 1 |
+| fc | <p>Function code (int)</p><ul><li>3 : read holding registers (multiple)</li><li>16 : write holding registers (multiple)</li></ul>                                         | 3 or 16 |
+| addr  | Start address of slave (0~65534) (int)                                                       | 0 |
+| len  | Quantity of data (1~127) (int)                                                     | 10 |
+| wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
+| var  | Array variable of integer type, If not specified, matches the slave address of the controller.                                                        | arr |
+
+<br>
+
+#### <mark style="color:green;">Sample job</mark>
+
+
+``` python
+Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis: -1 }
+     var arr # Local variable definition
+     arr=Array(20) # Defined as an array variable of int type
+     modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr # Read 10 data from address 0 and assign them to the arr variable
+     print arr[0] # Print the 0th index value of the arr variable
+     delay 2 # Time delay
+     arr[0]=arr[0]+1 # Add 1 to the 0th index value of the arr variable
+     modbus _enet0,sid=1,fc=16,addr=0,len=10,wait=3.0,var=arr # Write the arr variable value to 10 data from address 0
+     delay 2 # Time delay
+     end
+
+```
+
