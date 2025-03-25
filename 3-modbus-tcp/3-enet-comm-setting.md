@@ -3,7 +3,7 @@
 Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
 
 Set on **\[System > 2: Control parameter > 9: Network > 2: Service > 4: Ethernet communication]** screen. <br>
-Up to five Ethernet objects can be created and used, and the current communication status can also be monitored. <br>
+Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
 Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
 
 ![](../_assets/image32.png)

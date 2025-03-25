@@ -1,7 +1,7 @@
 ﻿# 3.2 Modbus slave setting
 
 Set on the **\[System > 2: Control parameter > 9: Network > 2: Service > 1: Modbus slave]** screen. <br>
-Up to three slaves can be used, and the current communication status can also be monitored. <br>
+Up to three slaves can be used using "+" button, and the current communication status can also be monitored. <br>
 When operating as a slave, the controller responds to master requests, so it operates only with the settings on the screen. <br>
 
 ![](../_assets/image30.png)

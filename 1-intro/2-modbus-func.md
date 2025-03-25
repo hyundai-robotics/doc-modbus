@@ -33,7 +33,7 @@ The Hi6 robot controller supports the Modbus master and slave functions via seri
 | **Operation method** | **Serial communication** |               **Ethernet communication**               |
 | :-------: | :--------: | :------------------------------------: |
 | Operation of a master | <p>Robot language command <br>(Controller setup required)  </p> | <p>Robot language command <br>(Controller setup required)</p>               |
-|  Operation of a slave|   Settings of the controller   | <p>IP: Settings of the controller</p><p>Port: 502(Fixed), possible 2 ports add</p> |
+|  Operation of a slave|   Settings of the controller   | <p>Settings of the controller</p><p>(possible 3 ports add)</p> |
 
 
 ### <mark style="color:green;">4. Transmission mode</mark>
