@@ -97,4 +97,4 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">8. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">\*시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "내장 PLC 사용 설명서"를 참고하십시오.</mark>
+<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/korean/README)"를 참고하십시오.</mark>
