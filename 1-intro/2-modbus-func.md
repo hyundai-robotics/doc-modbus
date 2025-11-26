@@ -32,7 +32,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 | **운영 방식** | **시리얼 통신** |               **이더넷 통신**               |
 | :-------: | :--------: | :------------------------------------: |
-| Master 운영 |  <p>로봇 언어 명령문</p><p>(제어기 설정 필요)</p> |                <p>로봇 언어 명령문</p><p>(제어기 설정 필요)</p>               |
+| Master 운영 |  <p>로봇 언어 명령문</p><p>마스터 쿼리 설정</p> |                <p>로봇 언어 명령문</p><p>마스터 쿼리 설정</p>               |
 |  Slave 운영 |   제어기 설정   | <p>제어기 설정</p><p>(3개 추가 가능)</p> |
 
 
@@ -50,7 +50,7 @@ Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus �
 
 | **운영 방식** | 　　　　　　　　**시리얼 / 이더넷 통신**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Master 운영 | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li></ul>                                                                                                                                                                                                                                                                                                       |
+| Master 운영 | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)<li>04: read input registers (multiple)</li></li></ul>                                                                                                                                                                                                                                                                                                       |
 |  Slave 운영 | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
 
 
