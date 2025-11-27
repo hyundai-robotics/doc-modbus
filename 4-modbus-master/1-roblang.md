@@ -1,4 +1,4 @@
-﻿# 3.4 Modbus master operation
+﻿# 4.1 Operation for robot language
 
 You can use robot language statements to construct modbus master queries and send them to slaves. <br>
 When the statement is executed, data is transmitted and received. <br>
@@ -7,20 +7,21 @@ When the statement is executed, data is transmitted and received. <br>
 #### <mark style="color:green;">Grammer</mark>
 
 ```
-modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr
+modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # Serial communication
+modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communication
 ```
 
 #### <mark style="color:green;">Parameters</mark>
 
 |Parameters| Description                                                                                                    |    example    |
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
+| _sci2 or _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | Slave ID(1~247) (int)                                                      | 1 |
-| fc | <p>Function code (int)</p><ul><li>3 : read holding registers (multiple)</li><li>16 : write holding registers (multiple)</li></ul>                                         | 3 or 16 |
+| fc | <p>Function code (int)</p><ul><li>3 : read holding registers</li><li>16 : write holding registers</li><li>4 : read input registers</li></ul>                                         | 3 / 16 / 4 |
 | addr  | Start address of slave (0~65534) (int)                                                       | 0 |
 | len  | Quantity of data (1~127) (int)                                                     | 10 |
 | wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
-| var  | Array variable of integer type, If not specified, matches the slave address of the controller.                                                        | arr |
+| var  | Array variable of integer type, Data memory(_mw0), Input signal(fb2.diw0), Output signal(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
 
 <br>
 
