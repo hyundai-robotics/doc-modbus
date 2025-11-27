@@ -234,7 +234,7 @@ When the controller boots, it automatically establishes a communication connecti
     Displays the status of the communication connection. 
 # 4. Modbus master
 
-모드버스 마스터를 동작하기 위해서는 로봇언어 명령어로 실행하는 방법과 사용자가 설정화면에서 쿼리를 등록하여 실행하는 방법이 있습니다. 
+To operate the Modbus master, there are two ways: by executing it using robot language commands, or by registering a query in the settings screen and executing it. 
 # 4.1 Operation for robot language
 
 You can use robot language statements to construct modbus master queries and send them to slaves. <br>

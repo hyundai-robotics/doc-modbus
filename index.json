@@ -66,12 +66,12 @@
 	},
 	{
 		"link": "4-modbus-master/1-roblang.md",
-		"char_ofs": 9927,
-		"byte_ofs": 10341
+		"char_ofs": 10016,
+		"byte_ofs": 10312
 	},
 	{
 		"link": "4-modbus-master/2-setup.md",
-		"char_ofs": 12421,
-		"byte_ofs": 12882
+		"char_ofs": 12510,
+		"byte_ofs": 12853
 	}
 ]
