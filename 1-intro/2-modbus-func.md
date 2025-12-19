@@ -1,6 +1,6 @@
 ﻿# 1.2 모드버스 기능
 
-Hi6 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus 마스터, 슬레이브 기능을 모두 지원합니다.
+${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus 마스터, 슬레이브 기능을 모두 지원합니다.
 
 ### <mark style="color:green;">1. MODBUS master 운용 예</mark>
 

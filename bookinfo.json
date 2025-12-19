@@ -2,7 +2,10 @@
     "langCode": "ko",
     "series": "현대로봇 Hi6 제어기",
     "title": "기능설명서 - 모드버스",
-    "publisher": "현대로보틱스",
+    "publisher": "HD현대로보틱스",
     "tocTitle": "목차",
-    "tocTitleElements": "[ \"h1\", \"h2\" ]"
+    "tocTitleElements": "[ \"h1\", \"h2\" ]",
+    "variables": {
+        "cont_model": "Hi6"
+    }
 }
