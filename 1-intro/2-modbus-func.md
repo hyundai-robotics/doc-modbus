@@ -1,6 +1,6 @@
 ﻿# 1.2 Functions of the Modbus
 
-The Hi6 robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
+The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
 
 ### <mark style="color:green;">1. Operational example of a Modbus master </mark>
 

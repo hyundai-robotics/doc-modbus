@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Modbus
+﻿# ${cont_model} Robot Controller Function Manual - Modbus
 
 {% hint style="warning" %}
 The information provided in this product manual is the property of Hyundai Robotics.

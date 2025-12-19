@@ -6,72 +6,72 @@
 	},
 	{
 		"link": "1-intro/README.md",
-		"char_ofs": 447,
-		"byte_ofs": 467
+		"char_ofs": 457,
+		"byte_ofs": 477
 	},
 	{
 		"link": "1-intro/1-preparatory-information.md",
-		"char_ofs": 462,
-		"byte_ofs": 487
+		"char_ofs": 472,
+		"byte_ofs": 497
 	},
 	{
 		"link": "1-intro/2-modbus-func.md",
-		"char_ofs": 673,
-		"byte_ofs": 707
+		"char_ofs": 693,
+		"byte_ofs": 727
 	},
 	{
 		"link": "2-modbus-rtu/README.md",
-		"char_ofs": 5689,
-		"byte_ofs": 5841
+		"char_ofs": 5719,
+		"byte_ofs": 5871
 	},
 	{
 		"link": "2-modbus-rtu/1-serial-cable-connect.md",
-		"char_ofs": 5782,
-		"byte_ofs": 5940
+		"char_ofs": 5812,
+		"byte_ofs": 5970
 	},
 	{
 		"link": "2-modbus-rtu/2-serial-port-usage-setting.md",
-		"char_ofs": 6030,
-		"byte_ofs": 6206
+		"char_ofs": 6060,
+		"byte_ofs": 6236
 	},
 	{
 		"link": "2-modbus-rtu/3-modbus-environment-setting.md",
-		"char_ofs": 6314,
-		"byte_ofs": 6501
+		"char_ofs": 6344,
+		"byte_ofs": 6531
 	},
 	{
 		"link": "3-modbus-tcp/README.md",
-		"char_ofs": 6997,
-		"byte_ofs": 7199
+		"char_ofs": 7027,
+		"byte_ofs": 7229
 	},
 	{
 		"link": "3-modbus-tcp/1-network-setting.md",
-		"char_ofs": 7177,
-		"byte_ofs": 7385
+		"char_ofs": 7207,
+		"byte_ofs": 7415
 	},
 	{
 		"link": "3-modbus-tcp/2-slave-setting.md",
-		"char_ofs": 7422,
-		"byte_ofs": 7640
+		"char_ofs": 7452,
+		"byte_ofs": 7670
 	},
 	{
 		"link": "3-modbus-tcp/3-enet-comm-setting.md",
-		"char_ofs": 8341,
-		"byte_ofs": 8586
+		"char_ofs": 8371,
+		"byte_ofs": 8616
 	},
 	{
 		"link": "4-modbus-master/README.md",
-		"char_ofs": 9831,
-		"byte_ofs": 10121
+		"char_ofs": 9861,
+		"byte_ofs": 10151
 	},
 	{
 		"link": "4-modbus-master/1-roblang.md",
-		"char_ofs": 10016,
-		"byte_ofs": 10312
+		"char_ofs": 10046,
+		"byte_ofs": 10342
 	},
 	{
 		"link": "4-modbus-master/2-setup.md",
-		"char_ofs": 12510,
-		"byte_ofs": 12853
+		"char_ofs": 12540,
+		"byte_ofs": 12883
 	}
 ]

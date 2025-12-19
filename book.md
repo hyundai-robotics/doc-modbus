@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Modbus
+﻿# ${cont_model} Robot Controller Function Manual - Modbus
 
 {% hint style="warning" %}
 The information provided in this product manual is the property of Hyundai Robotics.
@@ -19,11 +19,11 @@ This manual may change without prior notice.
 
 To understand this manual, the following preparatory information is required.
 
-1. **Knowledge about operating the Hi6 robot controller**
+1. **Knowledge about operating the ${cont_model} robot controller**
 2. **Knowledge about the Modbus protocol**
 # 1.2 Functions of the Modbus
 
-The Hi6 robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
+The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
 
 ### <mark style="color:green;">1. Operational example of a Modbus master </mark>
 
