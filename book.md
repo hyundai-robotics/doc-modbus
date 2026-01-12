@@ -1,26 +1,20 @@
-﻿# ${cont_model} Robot Controller Function Manual - Modbus
+﻿
+[__SOURCE](README.md)
+# ${cont_model} Robot Controller Function Manual - Modbus
 
-{% hint style="warning" %}
-The information provided in this product manual is the property of Hyundai Robotics.
-
-It cannot be reproduced or redistributed in whole or in part without written consent from Hyundai Robotics, and it cannot be provided to a third party or used for other purposes.
-
-
-
-This manual may change without prior notice.
-
-
-
-**Copyright ⓒ 2020 by Hyundai Robotics**
-{% endhint %}
+[__SOURCE](1-intro/README.md)
 # 1. Overview
 
+
+[__SOURCE](1-intro/1-preparatory-information.md)
 # 1.1 Preparatory Information
 
 To understand this manual, the following preparatory information is required.
 
 1. **Knowledge about operating the ${cont_model} robot controller**
 2. **Knowledge about the Modbus protocol**
+
+[__SOURCE](1-intro/2-modbus-func.md)
 # 1.2 Functions of the Modbus
 
 The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
@@ -118,9 +112,13 @@ In other words, the above transmission will occur in the order of 0x80, 0x00, 0x
 ### <mark style="color:green;">8. SW memory map</mark>&#x20;
 
 <mark style="color:red;">\*This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."</mark>
+
+[__SOURCE](2-modbus-rtu/README.md)
 # 2. Modbus serial
 
 This is about slave or master operation via Modbus serial communication.
+
+[__SOURCE](2-modbus-rtu/1-serial-cable-connect.md)
 # 2.1 Connecting the serial cable
 
 Connect the serial cable directly to the COM2 port, as shown in the figure below.
@@ -136,6 +134,8 @@ Connect the serial cable directly to the COM2 port, as shown in the figure below
 * Pin map
 
 ![](../_assets/image6.png)
+
+[__SOURCE](2-modbus-rtu/2-serial-port-usage-setting.md)
 # 2.2 Serial port usage setting 
 
 You can set the usage of the serial port to the Modbus by applying the settings as follows in the **\[General]** tab of the **\[System > 2: Control parameter > 3: Serial port]** screen. <br>
@@ -144,6 +144,8 @@ You can set the usage of the serial port to the Modbus by applying the settings 
 ![](../_assets/image8.png)
 
 
+
+[__SOURCE](2-modbus-rtu/3-modbus-environment-setting.md)
 # 2.3 Modbus environment setting 
 
 The details of the Modbus can be set in the **\[Modbus]** tab as follows.
@@ -156,9 +158,13 @@ The details of the Modbus can be set in the **\[Modbus]** tab as follows.
     In cases of operations as the slave, the controller responds to master requests, so it operates only with the settings on the screen. <br> 
 * **Slave ID**: Set the ID for communications as the slave of the modbus serial communication.
 * **Mode**: Set the mode for communications as the slave of the modbus serial communication.
+
+[__SOURCE](3-modbus-tcp/README.md)
 # 3. Modbus TCP
 
 This is about modbus tcp slave communication and ethernet communication for modbus master operation. For modbus master operation refer to the [4. Modbus master]. 
+
+[__SOURCE](3-modbus-tcp/1-network-setting.md)
 # 3.2 Network setting
 
 To use ethernet communication, first set the network address corresponding to the connected LAN port on the **\[System > 2: Control parameter > 9: Network > 1: Environment setting]** screen.
@@ -166,6 +172,8 @@ To use ethernet communication, first set the network address corresponding to th
 ![](../_assets/image31.png)
 
 
+
+[__SOURCE](3-modbus-tcp/2-slave-setting.md)
 # 3.2 Modbus slave setting
 
 Set on the **\[System > 2: Control parameter > 9: Network > 2: Service > 1: Modbus slave]** screen. <br>
@@ -190,6 +198,8 @@ When operating as a slave, the controller responds to master requests, so it ope
 
     Sets the maximum number of connections for the master that can be connected to each slave. <br>
     Currently, you can get up to three.
+
+[__SOURCE](3-modbus-tcp/3-enet-comm-setting.md)
 # 3.3 Ethernet communication setting
  
 Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
@@ -232,9 +242,13 @@ When the controller boots, it automatically establishes a communication connecti
 *   **State**
 
     Displays the status of the communication connection. 
+
+[__SOURCE](4-modbus-master/README.md)
 # 4. Modbus master
 
 To operate the Modbus master, there are two ways: by executing it using robot language commands, or by registering a query in the settings screen and executing it. 
+
+[__SOURCE](4-modbus-master/1-roblang.md)
 # 4.1 Operation for robot language
 
 You can use robot language statements to construct modbus master queries and send them to slaves. <br>
@@ -279,6 +293,8 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
 
 ```
 
+
+[__SOURCE](4-modbus-master/2-setup.md)
 # 4.2 Operation for query setting
 
 When a user sets up a modbus master query, it can be automatically transmitted to the slaves based on this. <br>
