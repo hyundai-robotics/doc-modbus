@@ -1,26 +1,20 @@
-﻿# ${cont_model} 로봇제어기 기능설명서 - 모드버스
+﻿
+[__SOURCE](README.md)
+# ${cont_model} 로봇제어기 기능설명서 - 모드버스
 
-{% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
-
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
-
-
-
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-
-
-**Copyright ⓒ 2020 by Hyundai Robotics**
-{% endhint %}
+[__SOURCE](1-intro/README.md)
 # 1. 개요
 
+
+[__SOURCE](1-intro/1-preparatory-information.md)
 # 1.1 사전 필요 정보
 
 이 설명서를 이해하기 위해서는 다음과 같은 사전 정보가 필요합니다.
 
 1. **${cont_model} 로봇 제어기 조작 지식**
 2. **Modbus 프로토콜 지식**
+
+[__SOURCE](1-intro/2-modbus-func.md)
 # 1.2 모드버스 기능
 
 ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus 마스터, 슬레이브 기능을 모두 지원합니다.
@@ -120,8 +114,12 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">8. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/korean/README)"를 참고하십시오.</mark># 2. 모드버스 시리얼
+<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/korean/README)"를 참고하십시오.</mark>
+[__SOURCE](2-modbus-rtu/README.md)
+# 2. 모드버스 시리얼
 
+
+[__SOURCE](2-modbus-rtu/1-serial-cable-connect.md)
 # 2.1 시리얼 케이블 연결
 
 시리얼 케이블은 하기의 그림과 같이 COM2 포트에 직접 연결합니다.
@@ -139,6 +137,8 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ![](../_assets/image6.png)
 
+
+[__SOURCE](2-modbus-rtu/2-serial-port-usage-setting.md)
 # 2.2 시리얼 포트 용도 설정
 
 **\[설정 > 2: 제어 파라미터 > 3: 시리얼 포트]** 화면의 **\[일반 설정]** 탭에서 
@@ -148,6 +148,8 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 ![](../_assets/image8.png)
 
 
+
+[__SOURCE](2-modbus-rtu/3-modbus-environment-setting.md)
 # 2.3 모드버스 환경 설정
 
 모드버스의 세부사항은 **\[모드 버스]** 탭에서 다음과 같이 설정할 수 있습니다.
@@ -159,9 +161,13 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
     Slave로 운영 시 제어기는 마스터 요청에 응답을 수행하기 때문에 화면의 설정만으로 동작합니다. <br>
 * **슬레이브 ID**: 모드버스 시리얼의 Slave 로 통신하기 위한 ID 를 설정합니다.
 * **모드**: 모드버스 시리얼의 Slave 로 통신하기 위한 mode를 설정합니다.
+
+[__SOURCE](3-modbus-tcp/README.md)
 # 3. 모드버스 TCP
 
 모드버스 TCP 통신에 의한 슬레이브 또는 마스터 동작을 위한 이더넷 설정에 관한 내용입니다. 
+
+[__SOURCE](3-modbus-tcp/1-network-setting.md)
 # 3.2 네트워크 설정
 
 이더넷 통신을 사용하기 위해서는  **\[시스템 > 2: 제어 파라미터 > 9: 네트워크 > 1: 사용환경 설정]** 화면에서 연결된 LAN 포트에 해당하는 네트워크 주소를 설정하는 것이 가장 먼저입니다.
@@ -169,6 +175,8 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 ![](../_assets/image31.png)
 
 
+
+[__SOURCE](3-modbus-tcp/2-slave-setting.md)
 # 3.2 모드버스 슬레이브 설정
 
 **\[시스템 > 2: 제어 파라미터 > 9: 네트워크 > 2: 서비스 > 1: 모드버스 슬레이브]** 화면에서 설정합니다. <br>
@@ -190,6 +198,8 @@ Slave로 운영 시 제어기는 마스터 요청에 응답을 수행하기 때�
 *   **최대 연결**
 
     각각의 슬래이브에 연결할 수 있는 마스터의 최대 연결 수를 설정합니다. 현재는 최대 3개까지 가능합니다.
+
+[__SOURCE](3-modbus-tcp/3-enet-comm-setting.md)
 # 3.3 이더넷 통신 설정
 
 모드버스 TCP 마스터 동작을 수행하기 이전에 먼저 이더넷 통신 객체를 생성하고 설정해야 합니다. <br>
@@ -232,9 +242,13 @@ Slave로 운영 시 제어기는 마스터 요청에 응답을 수행하기 때�
 *   **상태**
 
     통신 연결 상태를 표시합니다. 
+
+[__SOURCE](4-modbus-master/README.md)
 # 4. 모드버스 마스터
 
 모드버스 마스터를 동작하기 위해서는 로봇언어 명령어로 실행하는 방법과 사용자가 설정화면에서 쿼리를 등록하여 실행하는 방법이 있습니다. 
+
+[__SOURCE](4-modbus-master/1-roblang.md)
 # 4.1 로봇언어로 동작
 
 로봇언어 명령문을 사용하여 모드버스 마스터 쿼리를 구성하고 이를 슬레이브에 전송할 수 있습니다. <br>
@@ -280,6 +294,8 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
 
 ```
 
+
+[__SOURCE](4-modbus-master/2-setup.md)
 # 4.2 쿼리설정으로 동작
 
 사용자가 모드버스 마스터 쿼리를 설정하면 이를 기반으로 자동으로 슬레이브에 전송할 수 있습니다. <br>
