@@ -1,6 +1,6 @@
 ﻿
 [__SOURCE](README.md)
-# ${cont_model} 로봇제어기 기능설명서 - 모드버스
+# ${cont_model} 제어기 기능설명서 - 모드버스
 
 [__SOURCE](1-intro/README.md)
 # 1. 개요
@@ -11,7 +11,7 @@
 
 이 설명서를 이해하기 위해서는 다음과 같은 사전 정보가 필요합니다.
 
-1. **${cont_model} 로봇 제어기 조작 지식**
+1. **${cont_model} 제어기 조작 지식**
 2. **Modbus 프로토콜 지식**
 
 [__SOURCE](1-intro/2-modbus-func.md)
