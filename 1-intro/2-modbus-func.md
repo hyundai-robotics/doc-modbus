@@ -56,7 +56,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### <mark style="color:green;">6. Slave address</mark>
 
-* Slave address: 1–247
+* Slave address: 1-247
 
 <br>
 

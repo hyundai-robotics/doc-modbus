@@ -1,1 +1,1 @@
-﻿# ${cont_model} Robot Controller Function Manual - Modbus
+﻿# ${cont_model} Controller Function Manual - Modbus

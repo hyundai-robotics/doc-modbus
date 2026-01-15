@@ -1,6 +1,6 @@
 ﻿
 [__SOURCE](README.md)
-# ${cont_model} Robot Controller Function Manual - Modbus
+# ${cont_model} Controller Function Manual - Modbus
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -11,7 +11,7 @@
 
 To understand this manual, the following preparatory information is required.
 
-1. **Knowledge about operating the ${cont_model} robot controller**
+1. **Knowledge about operating the ${cont_model} controller**
 2. **Knowledge about the Modbus protocol**
 
 [__SOURCE](1-intro/2-modbus-func.md)
@@ -73,7 +73,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### <mark style="color:green;">6. Slave address</mark>
 
-* Slave address: 1–247
+* Slave address: 1-247
 
 <br>
 

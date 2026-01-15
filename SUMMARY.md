@@ -1,6 +1,6 @@
 ﻿# Table of Contents
 
-* [${cont_model} Robot Controller Function Manual - Modbus](README.md)
+* [${cont_model} Controller Function Manual - Modbus](README.md)
 * [1. Overview](1-intro/README.md)
   * [1.1 Preparatory Information](1-intro/1-preparatory-information.md)
   * [1.2 Functions of the Modbus](1-intro/2-modbus-func.md)
