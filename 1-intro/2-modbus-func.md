@@ -48,7 +48,7 @@ ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한
 
 ### <mark style="color:green;">5. 지원 펑션</mark>
 
-| **운영 방식** | 　　　　　　　　**시리얼 / 이더넷 통신**                                                                                                                                                                                                                                                                                                                                                                                     |
+| **운영 방식** |         **시리얼 / 이더넷 통신**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Master 운영 | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)<li>04: read input registers (multiple)</li></li></ul>                                                                                                                                                                                                                                                                                                       |
 |  Slave 운영 | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
@@ -97,4 +97,4 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">8. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/korean/README)"를 참고하십시오.</mark>
+<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/ko/README)"를 참고하십시오.</mark>
