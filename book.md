@@ -2,6 +2,11 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Function Manual - Modbus
 
+[__SOURCE](0-about-this-manual/precautions.md)
+# Precautions
+
+{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+
 [__SOURCE](1-intro/README.md)
 # 1. Overview
 
@@ -64,7 +69,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### <mark style="color:green;">5. Functions supported</mark>
 
-| **Operation method** | 　　　　　　　　**Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Operation method** |         **Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul>                                                                                                                                                                                                                                                                                                       |
 |  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
