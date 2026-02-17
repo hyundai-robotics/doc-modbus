@@ -30,7 +30,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### 3. Support method
 
-| **Operation method** | **Serial communication** |               **Ethernet communication**               |
+| **Operation method** | **Serial communication** |   **Ethernet communication**   |
 | :-------: | :--------: | :------------------------------------: |
 | Operation of a master | <p>Robot language command <br>Controller setup </p> | <p>Robot language command <br>Controller setup</p>               |
 |  Operation of a slave|   Settings of the controller   | <p>Settings of the controller</p><p>(possible 3 ports add)</p> |
@@ -38,7 +38,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### 4. Transmission mode
 
-| **Operation method** |              **Serial communication**              | **Ethernet commuication** |
+| **Operation method** |  **Serial communication** | **Ethernet commuication** |
 | :-------: | :----------------------------------: | :--------: |
 | Operation of a master |               binary mode              |  binary mode |
 |  Operation of a slave | <p>ASCII mode</p><p>RTU (binary) mode</p> |  binary mode |
@@ -47,10 +47,10 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### 5. Functions supported
 
-| **Operation method** |         **Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
-| :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul>                                                                                                                                                                                                                                                                                                       |
-|  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
+| **Operation method** |   **Serial/Ethernet communication**  |
+| :-------: | :----------------------------------: |
+| Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul> |
+|  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
 
 
 
@@ -62,7 +62,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### 7. Address map
 
-![](<../_assets/image_10.png>)
+![](../_assets/image_10.png)
 
 *   The large numeric characters in italics in the table above are relay groups used in the Modbus.
 
