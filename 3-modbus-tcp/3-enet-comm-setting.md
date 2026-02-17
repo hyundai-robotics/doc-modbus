@@ -1,42 +1,36 @@
-﻿# 3.3 Ethernet communication setting
- 
-Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
+﻿# 3.3 以太网通信设置
 
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication` screen. <br>
-Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
-Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
+在进行 Modbus TCP 主操作之前，您必须首先创建并配置以太网通信对象。<br>
+
+在 `[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 4: 以太网通信 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication)` 屏幕上设置。<br>
+最多可以使用 "+" 按钮创建五个以太网对象，并可进行使用，同时也可以监控当前的通信状态。<br>
+由于主设备使用机器人语言命令操作，因此您必须单独编写并运行任务程序，而不是通过屏幕设置。 （请参阅 [3.4 Modbus 主操作]）<br>
 
 ![](../_assets/image32.png)
 
-You can force close the socket of the corresponding Ethernet object with the `[Close]` button, and perform a communication connection with the `[Connect]` button. <br>
-When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
+您可以使用 `[Close]` 按钮强制关闭相应以太网对象的套接字，并使用 `[Connect]` 按钮进行通信连接。<br>
+当控制器启动时，它会自动与配置的以太网对象建立通信连接。<br>
 
+*   **名称**
 
-*   **Name**
+    以太网通信对象的名称。每个名称必须设置为 "enet0" ~ "enet4"。
 
-    The name of the Ethernet communication object. Each name must be set to "enet0" ~ "enet4".
+*   **协议**
 
+    选择通信协议。对于 MODBUS TCP 主操作，必须设置为 "TCPc"（TCP 客户端）。
 
-*   **Protocol**
+*   **IP 地址**
 
-    Select the communication protocol. For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
+    设置从设备使用的 IP 地址。
 
+*   **本地端口**
 
-*   **IP address**
+    设置本地端口号。Modbus 通信默认使用端口 502。
 
-    Sets the IP address used by the slave. 
+*   **远程端口**
 
+    设置远程端口号。Modbus 通信默认使用端口 502。
 
-*   **Local port**
+*   **状态**
 
-    Sets the local port number. Modbus communication uses port 502 by default.
-
-
-*   **Remote port**
-
-    Sets the remote port number. Modbus communication uses port 502 by default.
-
-
-*   **State**
-
-    Displays the status of the communication connection. 
+    显示通信连接的状态。

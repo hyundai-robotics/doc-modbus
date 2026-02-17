@@ -1,24 +1,24 @@
-﻿# 3.2 Modbus slave setting
+﻿# 3.2 Modbus 从设备设置
 
-Set on the `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 1: Modbus slave` screen. <br>
-Up to three slaves can be used using "+" button, and the current communication status can also be monitored. <br>
-When operating as a slave, the controller responds to master requests, so it operates only with the settings on the screen. <br>
+在`[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 1: Modbus 从设备 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 1: Modbus slave)`屏幕上进行设置。 <br>
+最多可以使用"+"按钮添加三个从设备，并且可以监控当前的通信状态。 <br>
+作为从设备操作时，控制器响应主设备请求，因此仅根据屏幕上的设置进行操作。 <br>
 
 ![](../_assets/image30.png)
 
-*   **Port No.**
+*   **端口号**
 
-    Sets the port for MODBUS TCP communication. <br>
-    Each slave must be set to a different port number.
-
-
-*   **Timeout**
-
-    Sets the time to check the MODBUS TCP communication connection status. <br>
-    If there is no service request from the master for a specified period of time, the connection is forcibly terminated.
+    设置MODBUS TCP通信的端口。 <br>
+    每个从设备必须设置为不同的端口号。
 
 
-*   **Max connection**
+*   **超时**
 
-    Sets the maximum number of connections for the master that can be connected to each slave. <br>
-    Currently, you can get up to three.
+    设置检查MODBUS TCP通信连接状态的时间。 <br>
+    如果在指定时间内没有来自主设备的服务请求，连接将被强制终止。
+
+
+*   **最大连接数**
+
+    设置可以连接到每个从设备的主设备的最大连接数。 <br>
+    目前最多可以连接三个。

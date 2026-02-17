@@ -1,3 +1,3 @@
-﻿# 4. Modbus master
+﻿# 4. Modbus 主机
 
-To operate the Modbus master, there are two ways: by executing it using robot language commands, or by registering a query in the settings screen and executing it. 
+要操作 Modbus 主机，有两种方法：通过使用机器人语言命令执行，或在设置屏幕中注册查询并执行。

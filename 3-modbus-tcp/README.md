@@ -1,3 +1,3 @@
 ﻿# 3. Modbus TCP
 
-This is about modbus tcp slave communication and ethernet communication for modbus master operation. For modbus master operation refer to the [4. Modbus master]. 
+这是关于Modbus TCP从设备通信和以太网通信以进行Modbus主设备操作的内容。有关Modbus主设备操作，请参阅 [4. Modbus master].

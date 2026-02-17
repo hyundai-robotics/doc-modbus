@@ -1,73 +1,64 @@
-﻿# 4.2 Operation for query setting
+﻿# 4.2 查询设置操作
 
-When a user sets up a modbus master query, it can be automatically transmitted to the slaves based on this. <br>
-Data transmission and reception occurs when executing a query in a configured query. <br>
+当用户设置 modbus 主查询时，基于此可以自动传输到从设备。 <br>
+在配置的查询中执行查询时，将发生数据传输和接收。 <br>
 <br>
 
-
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
-You can add query using "+" button and possible monitoring of the current query execution status. <br>
+在 `[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 5: Modbus master ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master)` 屏幕上设置。 <br>
+您可以使用 "+" 按钮添加查询，并可能监控当前查询执行状态。 <br>
 
 ![](../_assets/image33.png)
 
-You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
-After the controller boots, the set queries are automatically executed sequentially. <br>
+您可以通过 `[stop]` 按钮强制停止主执行，并通过 `[execute]` 按钮重新执行。 <br>
+控制器启动后，设置的查询将自动按顺序执行。 <br>
+
+*   **名称**
+
+    查询对象的名称。每个名称必须设置为 "query_?"。
+
+*   **通讯类型**
+
+    选择通信方式：以太网通信或串行通信。
+
+*   **对象编号**
+
+    对于以太网通信，设置在 [3.3 Ethernet Communication] 中设置的 enet 编号。 <br>
+    对于串行通信，目前仅可用 2 个。
+
+*   **从设备 ID**
+
+    设置从设备 ID（1~247）。
+
+*   **功能**
+
+    设置功能代码。 <br>
+    F03 : 读取保持寄存器 <br>
+    F16 : 写入保持寄存器 <br>
+    F04 : 读取输入寄存器 <br>
+
+*   **起始地址**
+
+    设置从设备的起始地址 (0~65534)。
+*   **长度**
+
+    设置数据的数量（1到127）。
+
+  
+*   **超时**
+
+    设置超时时间（以秒为单位）。将其设置为0将无限期等待。 
 
 
-*   **Name**
+*   **继电器名称/地址**
 
-    The name of the query object. Each name must be set to "query_?".
-
-
-*   **Communication type**
-
-    Select the communication method: Ethernet communication or serial communication.
+    设置继电器（数据存储/输入/输出信号等）名称或Modbus从站地址。 
 
 
-*   **Object number**
+*   **延迟时间**
 
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication]. <br> 
-    For serial communication, only 2 are currently available.
-
-
-*   **Slave id**
-
-    Set the Slave ID(1~247).
+    设置当前查询的执行与下一个查询的执行之间的延迟。 
 
 
-*   **Function**
+*   **状态**
 
-    Set the function code. <br>
-    F03 : read holding registers <br>
-    F16 : write holding registers <br>
-    F04 : read input registers <br>
-
-
-*   **Start address**
-
-    Set the slave's starting address (0~65534). 
-
-
-*   **Length**
-
-    Set the number of data (1 to 127).
-
-
-*   **Timeout**
-
-    Sets the timeout period (in seconds). Setting it to 0 will wait indefinitely. 
-
-
-*   **Relay name/Address**
-
-    Set to relay (data memory/input/output signal, etc.) name or Modbus slave address. 
-
-
-*   **Delay time**
-
-    Sets the delay between the execution of the current query and the execution of the next query. 
-
-
-*   **State**
-
-    The execution status of the currently running query is displayed by configuring it with robot language commands. 
+    当前正在运行的查询的执行状态通过使用机器人语言命令进行配置后显示。

@@ -1,373 +1,332 @@
 ﻿
-[__SOURCE](README.md)
-# ${cont_model} Controller Function Manual - Modbus
-
-[__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
-
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
-
 [__SOURCE](1-intro/README.md)
-# 1. Overview
-
-
+# 1. 概述
 [__SOURCE](1-intro/1-preparatory-information.md)
-# 1.1 Preparatory Information
+# 1.1 准备信息
 
-To understand this manual, the following preparatory information is required.
+要理解本手册，以下准备信息是必需的。
 
-1. **Knowledge about operating the ${cont_model} controller**
-2. **Knowledge about the Modbus protocol**
-
+1. **有关操作 ${cont_model} 控制器的知识**
+2. **有关 Modbus 协议的知识**
 [__SOURCE](1-intro/2-modbus-func.md)
-# 1.2 Functions of the Modbus
+# 1.2 Modbus的功能
 
-The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
+${cont_model} 机器人控制器通过串行和以太网通信支持Modbus主从功能。
 
-### 1. Operational example of a Modbus master
+### 1. Modbus主操作示例
 
-*   **Equipment control**
+*   **设备控制**
 
-    Enables control over the equipment (ex. gripper) that supports the Modbus.
+    使设备（例如夹具）的控制成为可能，该设备支持Modbus。
 
 ![](../_assets/image2.png)
 
-### 2. Operational example of a MODBUS slave
+### 2. MODBUS从操作示例
 
-*   **Operation Panel Function**
+*   **操作面板功能**
 
-    One or several robots can be connected and used through serial or Ethernet communications using an inexpensive grahic panel (GP) that supports the Modbus.
-
-
-*   **PLC Communication**
-
-    Enables communication with PLCs with the Modbus master function through inexpensive solutions.
+    可以通过支持Modbus的廉价图形面板（GP）通过串行或以太网通信连接和使用一个或多个机器人。
 
 
-*   **PC-Based Robot Operation System**
+*   **PLC通信**
 
-    You can build a PC-based robot operating system that monitors or controls the input/output signals of the robot.
+    通过廉价解决方案使与支持Modbus主功能的PLC进行通信成为可能。
+
+
+*   **基于PC的机器人操作系统**
+
+    您可以构建一个基于PC的机器人操作系统，以监控或控制机器人的输入/输出信号。
 
 ![](../_assets/image3.png)
 
-### 3. Support method
+### 3. 支持方法
 
-| **Operation method** | **Serial communication** |   **Ethernet communication**   |
+| **操作方法** | **串行通信** |   **以太网通信**   |
 | :-------: | :--------: | :------------------------------------: |
-| Operation of a master | <p>Robot language command <br>Controller setup </p> | <p>Robot language command <br>Controller setup</p>               |
-|  Operation of a slave|   Settings of the controller   | <p>Settings of the controller</p><p>(possible 3 ports add)</p> |
+| 主设备操作 | <p>机器人语言命令 <br>控制器设置  </p> | <p>机器人语言命令 <br>控制器设置</p>               |
+| 从设备操作|   控制器设置   | <p>控制器设置</p><p>(可以添加3个端口)</p> |
 
 
-### 4. Transmission mode
+### 4. 传输模式
 
-| **Operation method** |  **Serial communication** | **Ethernet commuication** |
+| **操作方法** |  **串行通信** | **以太网通信** |
 | :-------: | :----------------------------------: | :--------: |
-| Operation of a master |               binary mode              |  binary mode |
-|  Operation of a slave | <p>ASCII mode</p><p>RTU (binary) mode</p> |  binary mode |
+| 主设备操作 |               二进制模式              |  二进制模式 |
+| 从设备操作 | <p>ASCII模式</p><p>RTU（二进制）模式</p> |  二进制模式 |
 
 
+### 5. 支持的功能
 
-### 5. Functions supported
-
-| **Operation method** |   **Serial/Ethernet communication**  |
+| **操作方法** |   **串行/以太网通信**  |
 | :-------: | :----------------------------------: |
-| Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul> |
-|  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
+| 主控制器的操作 | <ul><li>03：读取保持寄存器（多个）</li><li>16：写入保持寄存器（多个）</li><li>04：读取输入寄存器（多个）</li></ul> |
+| 从设备的操作 | <ul><li>01：读取线圈（位）</li><li>02：读取离散输入（位）</li><li>03：读取保持寄存器（多个）</li><li>04：读取输入寄存器（多个）</li><li>05：写入单个线圈（位）</li><li>06：写入单个保持寄存器</li><li>15：写入线圈（多个位）</li><li>16：写入保持寄存器（多个）</li></ul> |
 
 
 
-### 6. Slave address
+### 6. 从设备地址
 
-* Slave address: 1-247
+* 从设备地址：1-247
 
 <br>
 
-### 7. Address map
+### 7. 地址映射
 
 ![](../_assets/image_10.png)
 
-*   The large numeric characters in italics in the table above are relay groups used in the Modbus.
+*   上表中斜体的大数字字符是Modbus中使用的继电器组。
 
-    * MW (data memory for user)
-    * DO (digital output)
-    * SO (system output)
-    * SI (system input)
-    * SW (System memory)
-    * Y (output relay)
-    * X (input relay)
-
-
-*   Data format
-
-    When it comes to the floating-point format, the IEEE single-precision 32 bit float-point is used. For 8 bit/16 bit/32 bit, all signed integers will be used.
+    * MW（用户数据存储）
+    * DO（数字输出）
+    * SO（系统输出）
+    * SI（系统输入）
+    * SW（系统内存）
+    * Y（输出继电器）
+    * X（输入继电器）
 
 
-* For the endian of the relay, little-endian is used.
+*   数据格式
 
-    Example: In the case of dof0=6.515625 (0x40D08000) in float format as an example
+    在浮点格式方面，使用IEEE单精度32位浮点数。对于8位/16位/32位，将使用所有有符号整数。
+
+
+* 对于继电器的字节序，使用小端格式。
+
+    例如：在浮点格式下，dof0=6.515625（0x40D08000）作为示例
 
     dol0=0x4D08000 -> dow0=0x8000, dow2=0x40D0 -> dob0=0x00, dob1=0x80, dob2=0xD0, dob3=0x40
 
 {% hint style="info" %}
-For Modbus transmissions, the endian will be 16-bit aligned big-endian.
+对于Modbus传输，字节序将是16位对齐的大端格式。
 
-In other words, the above transmission will occur in the order of 0x80, 0x00, 0x40, and 0xD0.
+换句话说，上述传输将以0x80, 0x00, 0x40和0xD0的顺序进行。
 {% endhint %}
 
-### 8. SW memory map
+### 8. SW内存映射
 
-* This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."
-
+* 这是系统内部定义的信息。有关更多详细信息，请参考《嵌入式PLC用户手册》。
 [__SOURCE](2-modbus-rtu/README.md)
-# 2. Modbus serial
+# 2. Modbus串行
 
-This is about slave or master operation via Modbus serial communication.
-
+这是关于通过Modbus串行通信的从设备或主设备操作。
 [__SOURCE](2-modbus-rtu/1-serial-cable-connect.md)
-# 2.1 Connecting the serial cable
+# 2.1 连接串口电缆
 
-Connect the serial cable directly to the COM2 port, as shown in the figure below.
+将串口电缆直接连接到COM2端口，如下图所示。
 
 ![](../_assets/image7.jpeg)
 
 
 
-* Connector (D-sub 9pin female)
+* 接头（D-sub 9针母头）
 
 ![](../_assets/image5.png)
 
-* Pin map
+* 针脚图
 
 ![](../_assets/image6.png)
-
 [__SOURCE](2-modbus-rtu/2-serial-port-usage-setting.md)
-# 2.2 Serial port usage setting 
+# 2.2 串口使用设置 
 
-You can set the usage of the serial port to the Modbus by applying the settings as follows in the `[General]` tab of the `[F2: System] - 2: Control parameter - 3: Serial port` screen. <br>
-`[Modbus]` tab is enable.
+您可以通过在 `[F2: 系统] - 2: 控制参数 - 3: 3：串口 ([F2: System] - 2: Control parameter - 3: Serial port)` 屏幕的 `[General]` 选项卡中应用以下设置，将串口的使用设置为 Modbus。 <br>
+`[Modbus]` 选项卡已启用。
 
 ![](../_assets/image8.png)
-
 [__SOURCE](2-modbus-rtu/3-modbus-environment-setting.md)
-# 2.3 Modbus environment setting 
+# 2.3 Modbus 环境设置 
 
-The details of the Modbus can be set in the `[Modbus]` tab as follows.
+Modbus 的详细信息可以在 `[Modbus]` 选项卡中设置，如下所示。
 
 ![](../_assets/image9.png)
 
-*   `Operation`: Select whether to operate as the master or the slave.
+*   `操作 (Operation)`: 选择作为主控还是从控操作。
 
-    In cases of operations as the master, the slave ID and mode will not be used, as the execution will be performed by master query. <br>
-    In cases of operations as the slave, the controller responds to master requests, so it operates only with the settings on the screen. <br> 
-* `Slave ID`: Set the ID for communications as the slave of the modbus serial communication.
-* `Mode`: Set the mode for communications as the slave of the modbus serial communication.
-
+    在作为主控的操作中，将不会使用从控 ID 和模式，因为将由主控查询执行。 <br>
+    在作为从控的操作中，控制器响应主控请求，因此仅根据屏幕上的设置进行操作。 <br> 
+* `Slave ID`: 设置作为 modbus 串行通信的从控的通信 ID。
+* `模式 (Mode)`: 设置作为 modbus 串行通信的从控的通信模式。
 [__SOURCE](3-modbus-tcp/README.md)
 # 3. Modbus TCP
 
-This is about modbus tcp slave communication and ethernet communication for modbus master operation. For modbus master operation refer to the [4. Modbus master]. 
-
+这是关于Modbus TCP从设备通信和以太网通信以进行Modbus主设备操作的内容。有关Modbus主设备操作，请参阅 [4. Modbus master].
 [__SOURCE](3-modbus-tcp/1-network-setting.md)
-# 3.2 Network setting
+# 3.2 网络设置
 
-To use ethernet communication, first set the network address corresponding to the connected LAN port on the `[F2: System] - 2: Control parameter - 9: Network - 1: Environment setting` screen.
+要使用以太网通信，首先在 `[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 1: 环境设置 ([F2: System] - 2: Control parameter - 9: Network - 1: Environment setting)` 屏幕上设置与连接的 LAN 端口对应的网络地址。
 
 ![](../_assets/image31.png)
-
-
-
 [__SOURCE](3-modbus-tcp/2-slave-setting.md)
-# 3.2 Modbus slave setting
+# 3.2 Modbus 从设备设置
 
-Set on the `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 1: Modbus slave` screen. <br>
-Up to three slaves can be used using "+" button, and the current communication status can also be monitored. <br>
-When operating as a slave, the controller responds to master requests, so it operates only with the settings on the screen. <br>
+在`[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 1: Modbus 从设备 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 1: Modbus slave)`屏幕上进行设置。 <br>
+最多可以使用"+"按钮添加三个从设备，并且可以监控当前的通信状态。 <br>
+作为从设备操作时，控制器响应主设备请求，因此仅根据屏幕上的设置进行操作。 <br>
 
 ![](../_assets/image30.png)
 
-*   **Port No.**
+*   **端口号**
 
-    Sets the port for MODBUS TCP communication. <br>
-    Each slave must be set to a different port number.
-
-
-*   **Timeout**
-
-    Sets the time to check the MODBUS TCP communication connection status. <br>
-    If there is no service request from the master for a specified period of time, the connection is forcibly terminated.
+    设置MODBUS TCP通信的端口。 <br>
+    每个从设备必须设置为不同的端口号。
 
 
-*   **Max connection**
+*   **超时**
 
-    Sets the maximum number of connections for the master that can be connected to each slave. <br>
-    Currently, you can get up to three.
+    设置检查MODBUS TCP通信连接状态的时间。 <br>
+    如果在指定时间内没有来自主设备的服务请求，连接将被强制终止。
 
+
+*   **最大连接数**
+
+    设置可以连接到每个从设备的主设备的最大连接数。 <br>
+    目前最多可以连接三个。
 [__SOURCE](3-modbus-tcp/3-enet-comm-setting.md)
-# 3.3 Ethernet communication setting
- 
-Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
+# 3.3 以太网通信设置
 
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication` screen. <br>
-Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
-Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
+在进行 Modbus TCP 主操作之前，您必须首先创建并配置以太网通信对象。<br>
+
+在 `[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 4: 以太网通信 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication)` 屏幕上设置。<br>
+最多可以使用 "+" 按钮创建五个以太网对象，并可进行使用，同时也可以监控当前的通信状态。<br>
+由于主设备使用机器人语言命令操作，因此您必须单独编写并运行任务程序，而不是通过屏幕设置。 （请参阅 [3.4 Modbus 主操作]）<br>
 
 ![](../_assets/image32.png)
 
-You can force close the socket of the corresponding Ethernet object with the `[Close]` button, and perform a communication connection with the `[Connect]` button. <br>
-When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
+您可以使用 `[Close]` 按钮强制关闭相应以太网对象的套接字，并使用 `[Connect]` 按钮进行通信连接。<br>
+当控制器启动时，它会自动与配置的以太网对象建立通信连接。<br>
 
+*   **名称**
 
-*   **Name**
+    以太网通信对象的名称。每个名称必须设置为 "enet0" ~ "enet4"。
 
-    The name of the Ethernet communication object. Each name must be set to "enet0" ~ "enet4".
+*   **协议**
 
+    选择通信协议。对于 MODBUS TCP 主操作，必须设置为 "TCPc"（TCP 客户端）。
 
-*   **Protocol**
+*   **IP 地址**
 
-    Select the communication protocol. For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
+    设置从设备使用的 IP 地址。
 
+*   **本地端口**
 
-*   **IP address**
+    设置本地端口号。Modbus 通信默认使用端口 502。
 
-    Sets the IP address used by the slave. 
+*   **远程端口**
 
+    设置远程端口号。Modbus 通信默认使用端口 502。
 
-*   **Local port**
+*   **状态**
 
-    Sets the local port number. Modbus communication uses port 502 by default.
-
-
-*   **Remote port**
-
-    Sets the remote port number. Modbus communication uses port 502 by default.
-
-
-*   **State**
-
-    Displays the status of the communication connection. 
-
+    显示通信连接的状态。
 [__SOURCE](4-modbus-master/README.md)
-# 4. Modbus master
+# 4. Modbus 主机
 
-To operate the Modbus master, there are two ways: by executing it using robot language commands, or by registering a query in the settings screen and executing it. 
-
+要操作 Modbus 主机，有两种方法：通过使用机器人语言命令执行，或在设置屏幕中注册查询并执行。
 [__SOURCE](4-modbus-master/1-roblang.md)
-# 4.1 Operation for robot language
+# 4.1 机器人语言操作
 
-You can use robot language statements to construct modbus master queries and send them to slaves. <br>
-When the statement is executed, data is transmitted and received. <br>
+您可以使用机器人语言语句构造 Modbus 主查询并将其发送给从机。<br>
+当语句执行时，数据会被传输和接收。<br>
 <br>
 
-#### Grammer
+#### 语法
 
 ```
-modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # Serial communication
-modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communication
+modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # 串行通信
+modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # 以太网通信
 ```
 
-#### Parameters
+#### 参数
 
-|Parameters| Description                                                                                                    |    example    |
+|参数| 描述                                                                                                    |    示例    |
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| _sci2 or _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
-| sid  | Slave ID(1~247) (int)                                                      | 1 |
-| fc | <p>Function code (int)</p><ul><li>3 : read holding registers</li><li>16 : write holding registers</li><li>4 : read input registers</li></ul>                                         | 3 / 16 / 4 |
-| addr  | Start address of slave (0~65534) (int)                                                       | 0 |
-| len  | Quantity of data (1~127) (int)                                                     | 10 |
-| wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
-| var  | Array variable of integer type, Data memory(_mw0), Input signal(fb2.diw0), Output signal(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
+| _sci2 或 _enet0 | <p>串口或以太网对象 (str)</p><ul><li>_sci2 : 串口 2</li><li>_enet0 : 以太网对象 0</li></ul>                                         | "_sci2" 或 "_enet0" |
+| sid  | 从机 ID(1~247) (int)                                                      | 1 |
+| fc | <p>功能代码 (int)</p><ul><li>3 : 读取保持寄存器</li><li>16 : 写入保持寄存器</li><li>4 : 读取输入寄存器</li></ul>                                         | 3 / 16 / 4 |
+| addr  | 从机的起始地址 (0~65534) (int)                                                       | 0 |
+| len  | 数据量 (1~127) (int)                                                     | 10 |
+| wait  | 超时间隔（秒） (double)，如果未指定，则无限等待                                                       | 3.0 |
+| var  | 整数类型的数组变量，数据内存(_mw0)，输入信号(fb2.diw0)，输出信号(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
 
 <br>
 
-#### Sample job
+#### 示例任务
 
 
 ``` python
 Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis: -1 }
-     var arr # Local variable definition
-     arr=Array(20) # Defined as an array variable of int type
-     modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr # Read 10 data from address 0 and assign them to the arr variable
-     print arr[0] # Print the 0th index value of the arr variable
-     delay 2 # Time delay
-     arr[0]=arr[0]+1 # Add 1 to the 0th index value of the arr variable
-     modbus _enet0,sid=1,fc=16,addr=0,len=10,wait=3.0,var=arr # Write the arr variable value to 10 data from address 0
-     delay 2 # Time delay
+     var arr # 本地变量定义
+     arr=Array(20) # 定义为整数类型的数组变量
+     modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=arr # 从地址 0 读取 10 个数据并将它们分配给 arr 变量
+     print arr[0] # 打印 arr 变量的第 0 个索引值
+     delay 2 # 时间延迟
+     arr[0]=arr[0]+1 # 将 arr 变量的第 0 个索引值加 1
+     modbus _enet0,sid=1,fc=16,addr=0,len=10,wait=3.0,var=arr # 将 arr 变量值写入地址 0 的 10 个数据
+     delay 2 # 时间延迟
      end
 
 ```
-
-
 [__SOURCE](4-modbus-master/2-setup.md)
-# 4.2 Operation for query setting
+# 4.2 查询设置操作
 
-When a user sets up a modbus master query, it can be automatically transmitted to the slaves based on this. <br>
-Data transmission and reception occurs when executing a query in a configured query. <br>
+当用户设置 modbus 主查询时，基于此可以自动传输到从设备。 <br>
+在配置的查询中执行查询时，将发生数据传输和接收。 <br>
 <br>
 
-
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
-You can add query using "+" button and possible monitoring of the current query execution status. <br>
+在 `[F2: 系统] - 2: 控制参数 - 9: 9：网络 - 2: 服务 - 5: Modbus master ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master)` 屏幕上设置。 <br>
+您可以使用 "+" 按钮添加查询，并可能监控当前查询执行状态。 <br>
 
 ![](../_assets/image33.png)
 
-You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
-After the controller boots, the set queries are automatically executed sequentially. <br>
+您可以通过 `[stop]` 按钮强制停止主执行，并通过 `[execute]` 按钮重新执行。 <br>
+控制器启动后，设置的查询将自动按顺序执行。 <br>
+
+*   **名称**
+
+    查询对象的名称。每个名称必须设置为 "query_?"。
+
+*   **通讯类型**
+
+    选择通信方式：以太网通信或串行通信。
+
+*   **对象编号**
+
+    对于以太网通信，设置在 [3.3 Ethernet Communication] 中设置的 enet 编号。 <br>
+    对于串行通信，目前仅可用 2 个。
+
+*   **从设备 ID**
+
+    设置从设备 ID（1~247）。
+
+*   **功能**
+
+    设置功能代码。 <br>
+    F03 : 读取保持寄存器 <br>
+    F16 : 写入保持寄存器 <br>
+    F04 : 读取输入寄存器 <br>
+
+*   **起始地址**
+
+    设置从设备的起始地址 (0~65534)。
+*   **长度**
+
+    设置数据的数量（1到127）。
+
+  
+*   **超时**
+
+    设置超时时间（以秒为单位）。将其设置为0将无限期等待。 
 
 
-*   **Name**
+*   **继电器名称/地址**
 
-    The name of the query object. Each name must be set to "query_?".
-
-
-*   **Communication type**
-
-    Select the communication method: Ethernet communication or serial communication.
+    设置继电器（数据存储/输入/输出信号等）名称或Modbus从站地址。 
 
 
-*   **Object number**
+*   **延迟时间**
 
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication]. <br> 
-    For serial communication, only 2 are currently available.
-
-
-*   **Slave id**
-
-    Set the Slave ID(1~247).
+    设置当前查询的执行与下一个查询的执行之间的延迟。 
 
 
-*   **Function**
+*   **状态**
 
-    Set the function code. <br>
-    F03 : read holding registers <br>
-    F16 : write holding registers <br>
-    F04 : read input registers <br>
-
-
-*   **Start address**
-
-    Set the slave's starting address (0~65534). 
-
-
-*   **Length**
-
-    Set the number of data (1 to 127).
-
-
-*   **Timeout**
-
-    Sets the timeout period (in seconds). Setting it to 0 will wait indefinitely. 
-
-
-*   **Relay name/Address**
-
-    Set to relay (data memory/input/output signal, etc.) name or Modbus slave address. 
-
-
-*   **Delay time**
-
-    Sets the delay between the execution of the current query and the execution of the next query. 
-
-
-*   **State**
-
-    The execution status of the currently running query is displayed by configuring it with robot language commands. 
+    当前正在运行的查询的执行状态通过使用机器人语言命令进行配置后显示。

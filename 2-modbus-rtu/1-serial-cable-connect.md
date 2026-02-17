@@ -1,15 +1,15 @@
-﻿# 2.1 Connecting the serial cable
+﻿# 2.1 连接串口电缆
 
-Connect the serial cable directly to the COM2 port, as shown in the figure below.
+将串口电缆直接连接到COM2端口，如下图所示。
 
 ![](../_assets/image7.jpeg)
 
 
 
-* Connector (D-sub 9pin female)
+* 接头（D-sub 9针母头）
 
 ![](../_assets/image5.png)
 
-* Pin map
+* 针脚图
 
 ![](../_assets/image6.png)

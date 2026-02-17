@@ -1,3 +1,3 @@
-﻿# 2. Modbus serial
+﻿# 2. Modbus串行
 
-This is about slave or master operation via Modbus serial communication.
+这是关于通过Modbus串行通信的从设备或主设备操作。

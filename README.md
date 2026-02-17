@@ -1,1 +1,1 @@
-﻿# ${cont_model} Controller Function Manual - Modbus
+﻿# ${cont_model} 控制器功能手册 - Modbus

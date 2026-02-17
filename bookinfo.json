@@ -1,12 +1,14 @@
 ﻿{
-    "langCode": "en",
-    "series": "${cont_model} Controller",
-    "title": "Function Manual - Modbus",
+    "langCode": "zh",
+    "series": "${cont_model} 控制器",
+    "title": "功能手册 - Modbus",
     "publisher": "HD Hyundai Robotics",
-    "tocTitle": "Table of Contents",
+    "tocTitle": "目录",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
-    "docId": "${cont_model:upper}MODBUS_EN_001",
+    "docId": "${cont_model:upper}MODBUS_ZH_001",
     "references": [
-        { "rpath" : "doc-hi6-operation/en-tp630" }
+        {
+            "rpath": "doc-hi6-operation/zh-tp630"
+        }
     ]
 }
