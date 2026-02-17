@@ -5,12 +5,12 @@ Data transmission and reception occurs when executing a query in a configured qu
 <br>
 
 
-Set on **\[System > 2: Control parameter > 9: Network > 2: Service > 5: Modbus master]** screen. <br>
+Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
 You can add query using "+" button and possible monitoring of the current query execution status. <br>
 
 ![](../_assets/image33.png)
 
-You can force stop of master execution by [stop] button and reexecute by [execute] button. <br>
+You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
 After the controller boots, the set queries are automatically executed sequentially. <br>
 
 

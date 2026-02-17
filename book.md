@@ -143,26 +143,24 @@ Connect the serial cable directly to the COM2 port, as shown in the figure below
 [__SOURCE](2-modbus-rtu/2-serial-port-usage-setting.md)
 # 2.2 Serial port usage setting 
 
-You can set the usage of the serial port to the Modbus by applying the settings as follows in the **\[General]** tab of the **\[System > 2: Control parameter > 3: Serial port]** screen. <br>
-**\[Modbus]** tab is enable.
+You can set the usage of the serial port to the Modbus by applying the settings as follows in the `[General]` tab of the `[F2: System] - 2: Control parameter - 3: Serial port` screen. <br>
+`[Modbus]` tab is enable.
 
 ![](../_assets/image8.png)
-
-
 
 [__SOURCE](2-modbus-rtu/3-modbus-environment-setting.md)
 # 2.3 Modbus environment setting 
 
-The details of the Modbus can be set in the **\[Modbus]** tab as follows.
+The details of the Modbus can be set in the `[Modbus]` tab as follows.
 
 ![](../_assets/image9.png)
 
-*   **Operation**: Select whether to operate as the master or the slave.
+*   `Operation`: Select whether to operate as the master or the slave.
 
     In cases of operations as the master, the slave ID and mode will not be used, as the execution will be performed by master query. <br>
     In cases of operations as the slave, the controller responds to master requests, so it operates only with the settings on the screen. <br> 
-* **Slave ID**: Set the ID for communications as the slave of the modbus serial communication.
-* **Mode**: Set the mode for communications as the slave of the modbus serial communication.
+* `Slave ID`: Set the ID for communications as the slave of the modbus serial communication.
+* `Mode`: Set the mode for communications as the slave of the modbus serial communication.
 
 [__SOURCE](3-modbus-tcp/README.md)
 # 3. Modbus TCP
@@ -172,7 +170,7 @@ This is about modbus tcp slave communication and ethernet communication for modb
 [__SOURCE](3-modbus-tcp/1-network-setting.md)
 # 3.2 Network setting
 
-To use ethernet communication, first set the network address corresponding to the connected LAN port on the **\[System > 2: Control parameter > 9: Network > 1: Environment setting]** screen.
+To use ethernet communication, first set the network address corresponding to the connected LAN port on the `[F2: System] - 2: Control parameter - 9: Network - 1: Environment setting` screen.
 
 ![](../_assets/image31.png)
 
@@ -181,7 +179,7 @@ To use ethernet communication, first set the network address corresponding to th
 [__SOURCE](3-modbus-tcp/2-slave-setting.md)
 # 3.2 Modbus slave setting
 
-Set on the **\[System > 2: Control parameter > 9: Network > 2: Service > 1: Modbus slave]** screen. <br>
+Set on the `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 1: Modbus slave` screen. <br>
 Up to three slaves can be used using "+" button, and the current communication status can also be monitored. <br>
 When operating as a slave, the controller responds to master requests, so it operates only with the settings on the screen. <br>
 
@@ -209,13 +207,13 @@ When operating as a slave, the controller responds to master requests, so it ope
  
 Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
 
-Set on **\[System > 2: Control parameter > 9: Network > 2: Service > 4: Ethernet communication]** screen. <br>
+Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication` screen. <br>
 Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
 Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
 
 ![](../_assets/image32.png)
 
-You can force close the socket of the corresponding Ethernet object with the [Close] button, and perform a communication connection with the [Connect] button. <br>
+You can force close the socket of the corresponding Ethernet object with the `[Close]` button, and perform a communication connection with the `[Connect]` button. <br>
 When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
 
 
@@ -307,12 +305,12 @@ Data transmission and reception occurs when executing a query in a configured qu
 <br>
 
 
-Set on **\[System > 2: Control parameter > 9: Network > 2: Service > 5: Modbus master]** screen. <br>
+Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
 You can add query using "+" button and possible monitoring of the current query execution status. <br>
 
 ![](../_assets/image33.png)
 
-You can force stop of master execution by [stop] button and reexecute by [execute] button. <br>
+You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
 After the controller boots, the set queries are automatically executed sequentially. <br>
 
 
