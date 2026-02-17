@@ -4,14 +4,14 @@ You can use robot language statements to construct modbus master queries and sen
 When the statement is executed, data is transmitted and received. <br>
 <br>
 
-#### <mark style="color:green;">Grammer</mark>
+#### Grammer
 
 ```
 modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # Serial communication
 modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communication
 ```
 
-#### <mark style="color:green;">Parameters</mark>
+#### Parameters
 
 |Parameters| Description                                                                                                    |    example    |
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
@@ -25,7 +25,7 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communicat
 
 <br>
 
-#### <mark style="color:green;">Sample job</mark>
+#### Sample job
 
 
 ``` python

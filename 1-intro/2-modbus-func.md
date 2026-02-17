@@ -2,7 +2,7 @@
 
 The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
 
-### <mark style="color:green;">1. Operational example of a Modbus master </mark>
+### 1. Operational example of a Modbus master
 
 *   **Equipment control**
 
@@ -10,7 +10,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ![](../_assets/image2.png)
 
-### <mark style="color:green;">2. Operational example of a MODBUS slave</mark>
+### 2. Operational example of a MODBUS slave
 
 *   **Operation Panel Function**
 
@@ -28,7 +28,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ![](../_assets/image3.png)
 
-### <mark style="color:green;">3. Support method</mark>
+### 3. Support method
 
 | **Operation method** | **Serial communication** |               **Ethernet communication**               |
 | :-------: | :--------: | :------------------------------------: |
@@ -36,7 +36,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 |  Operation of a slave|   Settings of the controller   | <p>Settings of the controller</p><p>(possible 3 ports add)</p> |
 
 
-### <mark style="color:green;">4. Transmission mode</mark>
+### 4. Transmission mode
 
 | **Operation method** |              **Serial communication**              | **Ethernet commuication** |
 | :-------: | :----------------------------------: | :--------: |
@@ -45,7 +45,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 
 
-### <mark style="color:green;">5. Functions supported</mark>
+### 5. Functions supported
 
 | **Operation method** |         **Serial/Ethernet communication**                                                                                                                                                                                                                                                                                                                                                                                     |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -54,13 +54,13 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 
 
-### <mark style="color:green;">6. Slave address</mark>
+### 6. Slave address
 
 * Slave address: 1-247
 
 <br>
 
-### <mark style="color:green;">7. Address map</mark>
+### 7. Address map
 
 ![](<../_assets/image_10.png>)
 
@@ -80,7 +80,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
     When it comes to the floating-point format, the IEEE single-precision 32 bit float-point is used. For 8 bit/16 bit/32 bit, all signed integers will be used.
 
 
-*   <mark style="color:red;background-color:yellow;">\*For the endian of the relay, little-endian is used.</mark>
+* For the endian of the relay, little-endian is used.
 
     Example: In the case of dof0=6.515625 (0x40D08000) in float format as an example
 
@@ -92,6 +92,6 @@ For Modbus transmissions, the endian will be 16-bit aligned big-endian.
 In other words, the above transmission will occur in the order of 0x80, 0x00, 0x40, and 0xD0.
 {% endhint %}
 
-### <mark style="color:green;">8. SW memory map</mark>&#x20;
+### 8. SW memory map
 
-<mark style="color:red;">\*This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."</mark>
+* This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."
