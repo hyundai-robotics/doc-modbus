@@ -1,7 +1,7 @@
 ﻿# Table of contents
 
-          * [${cont_model} 控制器功能手册 - Modbus](README.md)
-          * [注意事项](0-about-this-manual/precautions.md)
+* [${cont_model} 控制器功能手册 - Modbus](README.md)
+* [注意事项](0-about-this-manual/precautions.md)
 * [1. 概述](1-intro/README.md)
   * [1.1 准备信息](1-intro/1-preparatory-information.md)
   * [1.2 Modbus的功能](1-intro/2-modbus-func.md)
