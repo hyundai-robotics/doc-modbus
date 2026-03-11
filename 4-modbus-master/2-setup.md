@@ -38,9 +38,12 @@
 *   **기능**
 
     펑션코드를 설정합니다. <br>
+    F01 : read coils (bits) <br>
+    F02 : read discrete inputs (bits) <br>
     F03 : read holding registers <br>
-    F16 : write holding registers <br>
     F04 : read input registers <br>
+    F15 : write coils (bits) <br>
+    F16 : write holding registers <br>
 
 
 *   **시작 주소**
@@ -50,7 +53,7 @@
 
 *   **길이**
 
-    데이터 개수(1~127)를 설정합니다. 
+    데이터 개수(words : 1~127, bits : 1~2000)를 설정합니다. 
 
 
 *   **타임 아웃**
@@ -58,9 +61,9 @@
     타임아웃 시간(sec)을 설정합니다. 0으로 설정하면 무한대기 합니다. 
 
 
-*   **릴레이/주소**
+*   **릴레이 이름**
 
-    릴레이(데이터 메모리/입출력신호 등) 명칭이나 모드버스 슬래이브 주소로 설정합니다. 
+    릴레이(데이터 메모리/입출력신호 등) 명칭으로 설정합니다. 
 
 
 *   **지연 시간**
