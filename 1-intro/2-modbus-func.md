@@ -48,9 +48,11 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 ### 5. Functions supported
 
 | **Operation method** |   **Serial/Ethernet communication**  |
-| :-------: | :----------------------------------: |
-| Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul> |
+| :-------: | ---------------------------------- |
+| Operation of the master | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>15: write coils (bits)</li><li>16: write holding registers (multiple)</li></ul> |
 |  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
+
+
 
 
 

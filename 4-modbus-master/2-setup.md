@@ -34,13 +34,15 @@ After the controller boots, the set queries are automatically executed sequentia
 
     Set the Slave ID(1~247).
 
-
 *   **Function**
 
     Set the function code. <br>
+    F01 : read coils (bits) <br>
+    F02 : read discrete inputs (bits) <br>
     F03 : read holding registers <br>
-    F16 : write holding registers <br>
     F04 : read input registers <br>
+    F15 : write coils (bits) <br>
+    F16 : write holding registers <br>
 
 
 *   **Start address**
@@ -50,7 +52,7 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Length**
 
-    Set the number of data (1 to 127).
+    Set the number of data (words : 1~127, bits : 1~2000).
 
 
 *   **Timeout**
@@ -58,9 +60,9 @@ After the controller boots, the set queries are automatically executed sequentia
     Sets the timeout period (in seconds). Setting it to 0 will wait indefinitely. 
 
 
-*   **Relay name/Address**
+*   **Relay name**
 
-    Set to relay (data memory/input/output signal, etc.) name or Modbus slave address. 
+    Set to relay (data memory/input/output signal, etc.) name. 
 
 
 *   **Delay time**
