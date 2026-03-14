@@ -1,4 +1,4 @@
-﻿{
+{
     "langCode": "zh",
     "series": "${cont_model} 控制器",
     "title": "功能手册 - Modbus",
@@ -8,7 +8,8 @@
     "docId": "${cont_model:upper}MODBUS_ZH_001",
     "references": [
         {
-            "rpath": "doc-hi6-operation/zh-tp630"
+            "title": "操作手册 - TP630",
+            "id": "${cont_model:upper}OPTP630_ZH"
         }
     ]
 }
