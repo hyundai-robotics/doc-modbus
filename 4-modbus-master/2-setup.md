@@ -6,17 +6,18 @@ Data transmission and reception occurs when executing a query in a configured qu
 
 
 Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
-You can add query using "+" button and possible monitoring of the current query execution status. <br>
+You can add master using "+" button. <br>
 
 ![](../_assets/image33.png)
 
 You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
+You can configure the query using the [Query Setup] button. <br>
 After the controller boots, the set queries are automatically executed sequentially. <br>
 
 
 *   **Name**
 
-    The name of the query object. Each name must be set to "query_?".
+    The name of the master object. Each name must be set to "master_?".
 
 
 *   **Communication type**
@@ -26,8 +27,20 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Object number**
 
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication]. <br> 
+    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md)". <br> 
     For serial communication, only 2 are currently available.
+
+
+*   **State**
+
+    The execution status of the currently running query is displayed by configuring it with robot language commands. If the operation is stopped, "Stopped" is displayed.
+
+<br>
+<br>
+
+![](../_assets/image34.png)
+
+You can add a new query using the [append] button and delete the corresponding query using the [Delete] button. <br>
 
 
 *   **Slave id**
@@ -36,13 +49,7 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Function**
 
-    Set the function code. <br>
-    F01 : read coils (bits) <br>
-    F02 : read discrete inputs (bits) <br>
-    F03 : read holding registers <br>
-    F04 : read input registers <br>
-    F15 : write coils (bits) <br>
-    F16 : write holding registers <br>
+    Set the function code. You can check the supported functions with the [function info.] button.
 
 
 *   **Start address**
@@ -67,9 +74,5 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Delay time**
 
-    Sets the delay between the execution of the current query and the execution of the next query. 
+    Sets the delay time(in miliseconds) between the execution of the current query and the execution of the next query. 
 
-
-*   **State**
-
-    The execution status of the currently running query is displayed by configuring it with robot language commands. 

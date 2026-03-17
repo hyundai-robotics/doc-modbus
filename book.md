@@ -5,7 +5,7 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+{% include file="en/precautions.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -69,12 +69,16 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 ### 5. Functions supported
 
-| **Operation method** |   **Serial/Ethernet communication**  |
-| :-------: | :----------------------------------: |
-| Operation of the master | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)</li><li>04: read input registers (multiple)</li></ul> |
-|  Operation of a slave | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
+* 01: read coils (bits)
+* 02: read discrete inputs (bits)
+* 03: read holding registers 
+* 04: read input registers (multiple)
+* 05: write single coil (bit)
+* 06: write single holding register
+* 15: write coils (bits)
+* 16: write holding registers (multiple)
 
-
+<br>
 
 ### 6. Slave address
 
@@ -271,9 +275,9 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communicat
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | _sci2 or _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | Slave ID(1~247) (int)                                                      | 1 |
-| fc | <p>Function code (int)</p><ul><li>3 : read holding registers</li><li>16 : write holding registers</li><li>4 : read input registers</li></ul>                                         | 3 / 16 / 4 |
+| fc | Function code (int), refer to 2.5. Functions supported  | 3 / 16 |
 | addr  | Start address of slave (0~65534) (int)                                                       | 0 |
-| len  | Quantity of data (1~127) (int)                                                     | 10 |
+| len  | Quantity of data (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
 | wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
 | var  | Array variable of integer type, Data memory(_mw0), Input signal(fb2.diw0), Output signal(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
 
@@ -306,17 +310,18 @@ Data transmission and reception occurs when executing a query in a configured qu
 
 
 Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
-You can add query using "+" button and possible monitoring of the current query execution status. <br>
+You can add master using "+" button. <br>
 
 ![](../_assets/image33.png)
 
 You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
+You can configure the query using the [Query Setup] button. <br>
 After the controller boots, the set queries are automatically executed sequentially. <br>
 
 
 *   **Name**
 
-    The name of the query object. Each name must be set to "query_?".
+    The name of the master object. Each name must be set to "master_?".
 
 
 *   **Communication type**
@@ -326,21 +331,29 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Object number**
 
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication]. <br> 
+    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md)". <br> 
     For serial communication, only 2 are currently available.
+
+
+*   **State**
+
+    The execution status of the currently running query is displayed by configuring it with robot language commands. If the operation is stopped, "Stopped" is displayed.
+
+<br>
+<br>
+
+![](../_assets/image34.png)
+
+You can add a new query using the [append] button and delete the corresponding query using the [Delete] button. <br>
 
 
 *   **Slave id**
 
     Set the Slave ID(1~247).
 
-
 *   **Function**
 
-    Set the function code. <br>
-    F03 : read holding registers <br>
-    F16 : write holding registers <br>
-    F04 : read input registers <br>
+    Set the function code. You can check the supported functions with the [function info.] button.
 
 
 *   **Start address**
@@ -350,7 +363,7 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Length**
 
-    Set the number of data (1 to 127).
+    Set the number of data (words : 1~127, bits : 1~2000).
 
 
 *   **Timeout**
@@ -358,16 +371,12 @@ After the controller boots, the set queries are automatically executed sequentia
     Sets the timeout period (in seconds). Setting it to 0 will wait indefinitely. 
 
 
-*   **Relay name/Address**
+*   **Relay name**
 
-    Set to relay (data memory/input/output signal, etc.) name or Modbus slave address. 
+    Set to relay (data memory/input/output signal, etc.) name. 
 
 
 *   **Delay time**
 
-    Sets the delay between the execution of the current query and the execution of the next query. 
+    Sets the delay time(in miliseconds) between the execution of the current query and the execution of the next query. 
 
-
-*   **State**
-
-    The execution status of the currently running query is displayed by configuring it with robot language commands. 
