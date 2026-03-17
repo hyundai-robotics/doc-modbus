@@ -47,13 +47,16 @@ ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한
 
 
 ### <mark style="color:green;">5. 지원 펑션</mark>
+* 01: read coils (bits)
+* 02: read discrete inputs (bits)
+* 03: read holding registers 
+* 04: read input registers (multiple)
+* 05: write single coil (bit)
+* 06: write single holding register
+* 15: write coils (bits)
+* 16: write holding registers (multiple)
 
-| **운영 방식** |         **시리얼 / 이더넷 통신**                                                                                                                                                                                                                                                                                                                                                                                     |
-| :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Master 운영 | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>15: write coils (bits)</li><li>16: write holding registers (multiple)</li></ul>                                                                                                                                                                                                                                                                                                       |
-|  Slave 운영 | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (bits)</li><li>16: write holding registers (multiple)</li></ul> |
-
-
+<br>
 
 ### <mark style="color:green;">6. 슬레이브 주소</mark>
 

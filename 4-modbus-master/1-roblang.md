@@ -18,7 +18,7 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # 이더넷통신
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | _sci2 or _enet0 | <p>시리얼포트 또는 이더넷객체 (str)</p><ul><li>_sci2 : 시리얼포트 2</li><li>_enet0 : 이더넷객체 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | 슬래이브 ID(1~247) (int)                                                      | 1 |
-| fc | <p>펑션코드 (int)</p><ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)</li><li>04: read input registers (multiple)</li><li>15: write coils (bits)</li><li>16: write holding registers (multiple)</li></ul>                                         | 3 / 16 |
+| fc | 펑션코드 (int), 2.5 지원 펑션 참고                     | 3 / 16 |
 | addr  | 슬래이브의 시작주소 (0~65534) (int)                                                       | 0 |
 | len  | 데이터 개수 (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
 | wait  | timeout 시간 (sec) (double), 지정하지 않으면 무한대기                                                       | 3.0 |

@@ -5,7 +5,7 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # 사전 주의사항
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/ko/precautions.md" %}
+{% include file="ko/precautions.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. 개요
@@ -69,13 +69,16 @@ ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한
 
 
 ### <mark style="color:green;">5. 지원 펑션</mark>
+* 01: read coils (bits)
+* 02: read discrete inputs (bits)
+* 03: read holding registers 
+* 04: read input registers (multiple)
+* 05: write single coil (bit)
+* 06: write single holding register
+* 15: write coils (bits)
+* 16: write holding registers (multiple)
 
-| **운영 방식** |         **시리얼 / 이더넷 통신**                                                                                                                                                                                                                                                                                                                                                                                     |
-| :-------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Master 운영 | <ul><li>03: read holding registers (multiple)</li><li>16: write holding registers (multiple)<li>04: read input registers (multiple)</li></li></ul>                                                                                                                                                                                                                                                                                                       |
-|  Slave 운영 | <ul><li>01: read coils (bits)</li><li>02: read discrete inputs (bits)</li><li>03: read holding registers (multiple)                                                              </li><li>04: read input registers (multiple)</li><li>05: write single coil (bit)</li><li>06: write single holding register</li><li>15: write coils (multiple bits)</li><li>16: write holding registers (multiple)</li></ul> |
-
-
+<br>
 
 ### <mark style="color:green;">6. 슬레이브 주소</mark>
 
@@ -274,9 +277,9 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # 이더넷통신
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | _sci2 or _enet0 | <p>시리얼포트 또는 이더넷객체 (str)</p><ul><li>_sci2 : 시리얼포트 2</li><li>_enet0 : 이더넷객체 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | 슬래이브 ID(1~247) (int)                                                      | 1 |
-| fc | <p>펑션코드 (int)</p><ul><li>3 : read holding registers</li><li>16 : write holding registers</li><li>4 : read input registers</li></ul>                                         | 3 / 16 / 4 |
+| fc | 펑션코드 (int), 2.5 지원 펑션 참고                     | 3 / 16 |
 | addr  | 슬래이브의 시작주소 (0~65534) (int)                                                       | 0 |
-| len  | 데이터 개수 (1~127) (int)                                                     | 10 |
+| len  | 데이터 개수 (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
 | wait  | timeout 시간 (sec) (double), 지정하지 않으면 무한대기                                                       | 3.0 |
 | var  | int형 배열 변수, 데이터 메모리(_mw0), 입력신호(fb2.diw0), 출력신호(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
 
@@ -309,22 +312,23 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
 
 
 **\[시스템 > 2: 제어 파라미터 > 9: 네트워크 > 2: 서비스 > 5: 모드버스 마스터]** 화면에서 설정합니다. <br>
-"+"버튼을 사용하여 쿼리를 추가할 수 있으며 또한 현재 쿼리 실행 상태에 대한 모니터링이 가능합니다. <br>
+"+"버튼을 사용하여 마스터를 추가할 수 있습니다. <br>
 
 ![](../_assets/image33.png)
 
 [정지] 버튼으로 마스터 실행을 강제로 정지할 수 있으며 [실행] 버튼으로 다시 실행할 수 있습니다. <br>
+[쿼리 설정] 버튼으로 쿼리를 구성할 수 있습니다. <br>
 제어기 부팅후에는 설정된 쿼리가 순차적으로 자동으로 실행됩니다. <br>
 
 
 *   **이름**
 
-    쿼리 객체의 이름입니다. 각각의 이름은 반드시 "query_?"로 설정되어야 합니다.
+    마스터 객체의 이름입니다. 각각의 이름은 반드시 "master_?"로 설정되어야 합니다.
 
 
 *   **통신 방식**
 
-    이더넷 통신 또는 시리얼 통신의 통신 방식을 선택합니다.
+    해당 마스터의 통신 방식을 선택합니다. (이더넷 또는 시리얼)
 
 
 *   **객체 번호**
@@ -333,17 +337,29 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
     시리얼 통신의 경우는 현재 2만 사용이 가능합니다. 
 
 
+*   **상태**
+
+    동작중 쿼리의 실행 상태를 로봇언어 명령어로 구성하여 표시합니다. 동작이 정지된 경우에는 "Stopped"를 표시합니다. 
+
+*   **쿼리 설정 상태**
+
+    해당 마스터에 구성된 쿼리의 설정 상태를 표시합니다. 
+<br>
+<br>
+
+![](../_assets/image34.png)
+
+[추가] 버튼으로 새로운 쿼리를 추가할 수 있으며 [삭제하기] 버튼으로 해당 쿼리를 삭제할 수 있습니다. <br>
+
+
 *   **슬레이브 ID**
 
     슬레이브 ID(1~247)를 설정합니다.
 
 
-*   **기능**
+*   **펑션**
 
-    펑션코드를 설정합니다. <br>
-    F03 : read holding registers <br>
-    F16 : write holding registers <br>
-    F04 : read input registers <br>
+    펑션코드를 설정합니다. [펑션 정보] 버튼으로 지원하는 펑션들을 확인할 수 있습니다. <br>
 
 
 *   **시작 주소**
@@ -353,7 +369,7 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
 
 *   **길이**
 
-    데이터 개수(1~127)를 설정합니다. 
+    데이터 개수(words : 1~127, bits : 1~2000)를 설정합니다. 
 
 
 *   **타임 아웃**
@@ -361,16 +377,13 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
     타임아웃 시간(sec)을 설정합니다. 0으로 설정하면 무한대기 합니다. 
 
 
-*   **릴레이/주소**
+*   **릴레이 이름**
 
-    릴레이(데이터 메모리/입출력신호 등) 명칭이나 모드버스 슬래이브 주소로 설정합니다. 
+    릴레이(데이터 메모리/입출력신호 등) 명칭으로 설정합니다. 
 
 
 *   **지연 시간**
 
-    해당 쿼리가 실행된 후 다음 쿼리가 실행하기까지의 지연시간을 설정합니다. 
+    해당 쿼리가 실행된 후 다음 쿼리가 실행하기까지의 지연시간(ms)을 설정합니다. 
 
 
-*   **상태**
-
-    동작중 쿼리의 실행 상태를 로봇언어 명령어로 구성하여 표시합니다. 
