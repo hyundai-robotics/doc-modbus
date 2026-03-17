@@ -17,7 +17,7 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communicat
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | _sci2 or _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | Slave ID(1~247) (int)                                                      | 1 |
-| fc | Function code (int), refer to 2.5. Functions supported  | 3 / 16 |
+| fc | Function code (int), refer to 1.2.5. Functions supported  | 3 / 16 |
 | addr  | Start address of slave (0~65534) (int)                                                       | 0 |
 | len  | Quantity of data (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
 | wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |

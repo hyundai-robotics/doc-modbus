@@ -27,7 +27,7 @@ After the controller boots, the set queries are automatically executed sequentia
 
 *   **Object number**
 
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md)". <br> 
+    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md). <br> 
     For serial communication, only 2 are currently available.
 
 
