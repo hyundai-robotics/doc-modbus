@@ -1,4 +1,4 @@
-﻿{
+{
     "langCode": "en",
     "series": "${cont_model} Controller",
     "title": "Function Manual - Modbus",
@@ -8,7 +8,7 @@
     "docId": "${cont_model:upper}MODBUS_EN_001",
     "references": [
         {
-            "title": "Operation Manual - TP630",
+            "title": "${cont_model} Controller Operation Manual - TP630",
             "id": "${cont_model:upper}OPTP630_EN"
         }
     ]
