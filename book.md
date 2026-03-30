@@ -120,7 +120,7 @@ In other words, the above transmission will occur in the order of 0x80, 0x00, 0x
 
 ### 8. SW memory map
 
-* This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual."
+* This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual(https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/en/README?cont_model=${cont_model})".
 
 [__SOURCE](2-modbus-rtu/README.md)
 # 2. Modbus serial
