@@ -122,7 +122,7 @@ Modbus 전송은 16 bit align 의 Big Endian 임.
 
 ### <mark style="color:green;">8. SW 메모리 맵</mark>&#x20;
 
-<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/ko/README)"를 참고하십시오.</mark>
+<mark style="color:red;">시스템 내부적으로 정의된 정보로 이에 대한 세부 내용은 "[내장 PLC 사용 설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/ko/README?cont_model=${cont_model})"를 참고하십시오.</mark>
 [__SOURCE](2-modbus-rtu/README.md)
 # 2. 모드버스 시리얼
 
@@ -277,7 +277,7 @@ modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # 이더넷통신
 | :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
 | _sci2 or _enet0 | <p>시리얼포트 또는 이더넷객체 (str)</p><ul><li>_sci2 : 시리얼포트 2</li><li>_enet0 : 이더넷객체 0</li></ul>                                         | "_sci2" or "_enet0" |
 | sid  | 슬래이브 ID(1~247) (int)                                                      | 1 |
-| fc | 펑션코드 (int), 2.5 지원 펑션 참고                     | 3 / 16 |
+| fc | 펑션코드 (int), 1.2.5 지원 펑션 참고                   | 3 / 16 |
 | addr  | 슬래이브의 시작주소 (0~65534) (int)                                                       | 0 |
 | len  | 데이터 개수 (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
 | wait  | timeout 시간 (sec) (double), 지정하지 않으면 무한대기                                                       | 3.0 |
@@ -333,7 +333,7 @@ Hyundai Robot Job File; { version: 2.0, mech_type: "", total_axis: -1, aux_axis:
 
 *   **객체 번호**
 
-    이더넷 통신의 경우 [3.3 이더넷 통신]에 설정된 enet 번호를 설정합니다. <br> 
+    이더넷 통신의 경우 [3.3 이더넷 통신](../3-modbus-tcp/3-enet-comm-setting.md)에 설정된 enet 번호를 설정합니다. <br> 
     시리얼 통신의 경우는 현재 2만 사용이 가능합니다. 
 
 
