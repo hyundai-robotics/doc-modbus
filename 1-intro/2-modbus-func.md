@@ -62,7 +62,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 * Slave address: 1-247
 
-<br>
+<br><br>
 
 ### 7. Address map
 
@@ -71,6 +71,8 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 *   The large numeric characters in italics in the table above are relay groups used in the Modbus.
 
     * MW (data memory for user)
+    * RW(auxiliary memory for user)
+    * KW(keep memory for user)
     * DO (digital output)
     * SO (system output)
     * SI (system input)

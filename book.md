@@ -84,7 +84,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 * Slave address: 1-247
 
-<br>
+<br><br>
 
 ### 7. Address map
 
@@ -93,6 +93,8 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 *   The large numeric characters in italics in the table above are relay groups used in the Modbus.
 
     * MW (data memory for user)
+    * RW(auxiliary memory for user)
+    * KW(keep memory for user)
     * DO (digital output)
     * SO (system output)
     * SI (system input)
@@ -172,7 +174,7 @@ The details of the Modbus can be set in the `[Modbus]` tab as follows.
 This is about modbus tcp slave communication and ethernet communication for modbus master operation. For modbus master operation refer to the [4. Modbus master]. 
 
 [__SOURCE](3-modbus-tcp/1-network-setting.md)
-# 3.2 Network setting
+# 3.1 Network setting
 
 To use ethernet communication, first set the network address corresponding to the connected LAN port on the `[F2: System] - 2: Control parameter - 9: Network - 1: Environment setting` screen.
 
