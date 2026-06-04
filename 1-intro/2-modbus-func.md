@@ -1,5 +1,9 @@
 ﻿# 1.2 모드버스 기능
 
+{% hint style="warning" %}
+\[경고\] 외부 장치, 상위 제어 시스템 또는 네트워크로부터 수신된 신호는 제조자의 직접적인 통제 범위에 포함되지 않으며, 이러한 신호로 인한 오동작 또는 사고에 대한 책임은 사용자에게 있습니다.
+{% endhint %}
+
 ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한 Modbus 마스터, 슬레이브 기능을 모두 지원합니다.
 
 ### <mark style="color:green;">1. MODBUS master 운용 예</mark>
@@ -62,7 +66,7 @@ ${cont_model} 로봇 제어기는 시리얼 통신과 이더넷 통신에 의한
 
 * 슬레이브 주소 : 1\~247
 
-<br>
+<div class="page-break"></div>
 
 ### <mark style="color:green;">7. Address 맵</mark>
 
