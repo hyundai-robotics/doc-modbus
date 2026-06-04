@@ -22,6 +22,10 @@ To understand this manual, the following preparatory information is required.
 [__SOURCE](1-intro/2-modbus-func.md)
 # 1.2 Functions of the Modbus
 
+{% hint style="warning" %}
+\[Warning\] Signals received from external devices, upper-level control systems, or networks are outside the manufacturer’s direct control. The user shall assume all responsibility for any malfunctions or accidents caused by such signals.
+{% endhint %}
+
 The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
 
 ### 1. Operational example of a Modbus master
@@ -84,7 +88,7 @@ The ${cont_model} robot controller supports the Modbus master and slave function
 
 * Slave address: 1-247
 
-<br><br>
+<div class="page-break"></div>
 
 ### 7. Address map
 
