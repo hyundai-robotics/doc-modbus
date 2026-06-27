@@ -1,107 +1,100 @@
-﻿# 1.2 Functions of the Modbus
+# 1.2 Modbus的功能
 
 {% hint style="warning" %}
-\[Warning\] Signals received from external devices, upper-level control systems, or networks are outside the manufacturer’s direct control. The user shall assume all responsibility for any malfunctions or accidents caused by such signals.
+\[警告\] 从外部设备、上级控制系统或网络接收到的信号超出了制造商的直接控制范围。用户应承担因这些信号造成的任何故障或事故的全部责任。
 {% endhint %}
 
-The ${cont_model} robot controller supports the Modbus master and slave functions via serial and Ethernet communications.
+${cont_model}机器人控制器通过串行和以太网通信支持Modbus主站和从站功能。
 
-### 1. Operational example of a Modbus master
+### 1. Modbus主站的操作示例
 
-*   **Equipment control**
+*   **设备控制**
 
-    Enables control over the equipment (ex. gripper) that supports the Modbus.
+    启用对支持Modbus的设备（例如：抓手）的控制。
 
 ![](../_assets/image2.png)
 
-### 2. Operational example of a MODBUS slave
+### 2. MODBUS从站的操作示例
 
-*   **Operation Panel Function**
+*   **操作面板功能**
 
-    One or several robots can be connected and used through serial or Ethernet communications using an inexpensive grahic panel (GP) that supports the Modbus.
+    一个或多个机器人可以通过支持Modbus的低成本图形面板（GP）通过串行或以太网通信进行连接和使用。
 
+*   **PLC通信**
 
-*   **PLC Communication**
+    通过低成本解决方案启用与具有Modbus主站功能的PLC通信。
 
-    Enables communication with PLCs with the Modbus master function through inexpensive solutions.
+*   **基于PC的机器人操作系统**
 
-
-*   **PC-Based Robot Operation System**
-
-    You can build a PC-based robot operating system that monitors or controls the input/output signals of the robot.
+    您可以构建一个PC基机器人操作系统，以监控或控制机器人的输入/输出信号。
 
 ![](../_assets/image3.png)
 
-### 3. Support method
+### 3. 支持方法
 
-| **Operation method** | **Serial communication** |   **Ethernet communication**   |
+| **操作方法** | **串行通信** |   **以太网通信**   |
 | :-------: | :--------: | :------------------------------------: |
-| Operation of a master | <p>Robot language command <br>Controller setup </p> | <p>Robot language command <br>Controller setup</p>               |
-|  Operation of a slave|   Settings of the controller   | <p>Settings of the controller</p><p>(possible 3 ports add)</p> |
+| 主站的操作 | <p>机器人语言命令 <br>控制器设置 </p> | <p>机器人语言命令 <br>控制器设置</p>               |
+|  从站的操作|   控制器设置   | <p>控制器设置</p><p>(可添加3个端口)</p> |
 
+### 4. 传输模式
 
-### 4. Transmission mode
-
-| **Operation method** |  **Serial communication** | **Ethernet commuication** |
+| **操作方法** |  **串行通信** | **以太网通信** |
 | :-------: | :----------------------------------: | :--------: |
-| Operation of a master |               binary mode              |  binary mode |
-|  Operation of a slave | <p>ASCII mode</p><p>RTU (binary) mode</p> |  binary mode |
+| 主站的操作 |               二进制模式              |  二进制模式 |
+|  从站的操作 | <p>ASCII模式</p><p>RTU（二进制）模式</p> |  二进制模式 |
 
+### 5. 支持的功能
 
-
-### 5. Functions supported
-
-* 01: read coils (bits)
-* 02: read discrete inputs (bits)
-* 03: read holding registers 
-* 04: read input registers (multiple)
-* 05: write single coil (bit)
-* 06: write single holding register
-* 15: write coils (bits)
-* 16: write holding registers (multiple)
+* 01: 读取线圈（位）
+* 02: 读取离散输入（位）
+* 03: 读取保持寄存器 
+* 04: 读取输入寄存器（多个）
+* 05: 写入单个线圈（位）
+* 06: 写入单个保持寄存器
+* 15: 写入线圈（位）
+* 16: 写入保持寄存器（多个）
 
 <br>
 
-### 6. Slave address
+### 6. 从站地址
 
-* Slave address: 1-247
+* 从站地址：1-247
 
 <div class="page-break"></div>
 
-### 7. Address map
+### 7. 地址映射
 
 ![](../_assets/image_10.png)
 
-*   The large numeric characters in italics in the table above are relay groups used in the Modbus.
+*   上表中斜体的大数字字符是用于Modbus的继电器组。
 
-    * MW (data memory for user)
-    * RW(auxiliary memory for user)
-    * KW(keep memory for user)
-    * DO (digital output)
-    * SO (system output)
-    * SI (system input)
-    * SW (System memory)
-    * Y (output relay)
-    * X (input relay)
+    * MW（用户数据内存）
+    * RW（用户辅助内存）
+    * KW（用户保持内存）
+    * DO（数字输出）
+    * SO（系统输出）
+    * SI（系统输入）
+    * SW（系统内存）
+    * Y（输出继电器）
+    * X（输入继电器）
 
+*   数据格式
 
-*   Data format
+    在浮点格式中，使用的是IEEE单精度32位浮点。对于8位/16位/32位，将使用所有有符号整数。
 
-    When it comes to the floating-point format, the IEEE single-precision 32 bit float-point is used. For 8 bit/16 bit/32 bit, all signed integers will be used.
+* 对于继电器的字节序，使用小端序。
 
-
-* For the endian of the relay, little-endian is used.
-
-    Example: In the case of dof0=6.515625 (0x40D08000) in float format as an example
+    示例：在浮点格式中，dof0=6.515625（0x40D08000）作为示例
 
     dol0=0x4D08000 -> dow0=0x8000, dow2=0x40D0 -> dob0=0x00, dob1=0x80, dob2=0xD0, dob3=0x40
 
 {% hint style="info" %}
-For Modbus transmissions, the endian will be 16-bit aligned big-endian.
+对于Modbus传输，字节序将是16位对齐的大端序。
 
-In other words, the above transmission will occur in the order of 0x80, 0x00, 0x40, and 0xD0.
+换句话说，上述传输将按照0x80, 0x00, 0x40, 和0xD0的顺序发生。
 {% endhint %}
 
-### 8. SW memory map
+### 8. SW内存映射
 
-* This is information defined internally by the system. For more details, refer to the "Embedded PLC User Manual(https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/en/README?cont_model=${cont_model})".
+* 这是系统内部定义的信息。欲了解更多详细信息，请参考“嵌入式PLC用户手册(https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/zh/README?cont_model=${cont_model})”。

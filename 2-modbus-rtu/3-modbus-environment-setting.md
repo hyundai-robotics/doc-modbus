@@ -1,12 +1,12 @@
-﻿# 2.3 Modbus environment setting 
+﻿# 2.3 Modbus 环境设置
 
-The details of the Modbus can be set in the `[Modbus]` tab as follows.
+Modbus 的详细信息可以在 `[Modbus]` 标签中设置如下。
 
 ![](../_assets/image9.png)
 
-*   `Operation`: Select whether to operate as the master or the slave.
+*   `运行 (Operation)`: 选择是以主设备还是从设备的身份运行。
 
-    In cases of operations as the master, the slave ID and mode will not be used, as the execution will be performed by master query. <br>
-    In cases of operations as the slave, the controller responds to master requests, so it operates only with the settings on the screen. <br> 
-* `Slave ID`: Set the ID for communications as the slave of the modbus serial communication.
-* `Mode`: Set the mode for communications as the slave of the modbus serial communication.
+    在作为主设备运行的情况下，从设备 ID 和模式将不被使用，因为执行将由主查询进行。 <br>
+    在作为从设备运行的情况下，控制器响应主设备请求，因此仅在屏幕上的设置下操作。 <br> 
+* `Slave ID`: 设置作为 modbus 串行通信的从设备的通信 ID。
+* `模式 (Mode)`: 设置作为 modbus 串行通信的从设备的通信模式。

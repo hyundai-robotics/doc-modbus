@@ -1,6 +1,6 @@
-﻿# 1.1 Preparatory Information
+# 1.1 准备信息
 
-To understand this manual, the following preparatory information is required.
+要理解本手册，需要以下准备信息。
 
-1. **Knowledge about operating the ${cont_model} controller**
-2. **Knowledge about the Modbus protocol**
+1. **关于操作 ${cont_model} 控制器的知识**
+2. **关于 Modbus 协议的知识**

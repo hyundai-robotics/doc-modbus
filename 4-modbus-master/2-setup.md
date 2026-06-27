@@ -1,78 +1,66 @@
-﻿# 4.2 Operation for query setting
+﻿# 4.2 查询设置操作
 
-When a user sets up a modbus master query, it can be automatically transmitted to the slaves based on this. <br>
-Data transmission and reception occurs when executing a query in a configured query. <br>
+当用户设置 modbus 主站查询时，可以根据此自动传输到从站。<br>
+在执行配置的查询时会发生数据传输和接收。<br>
 <br>
 
-
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master` screen. <br>
-You can add master using "+" button. <br>
+在 `[F2: 系统] - 2: 控制参数 - 9: 网络 - 2: 服务 - 5: Modbus 主站 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 5: Modbus master)` 界面上设置。<br>
+您可以使用 "+" 按钮添加主站。<br>
 
 ![](../_assets/image33.png)
 
-You can force stop of master execution by `[stop]` button and reexecute by `[execute]` button. <br>
-You can configure the query using the [Query Setup] button. <br>
-After the controller boots, the set queries are automatically executed sequentially. <br>
+您可以通过 `[stop]` 按钮强制停止主站执行，并通过 `[execute]` 按钮重新执行。<br>
+您可以使用 [Query Setup] 按钮配置查询。<br>
+控制器启动后，设置的查询会自动按顺序执行。<br>
 
+*   **名称**
 
-*   **Name**
+    主对象的名称。每个名称必须设置为 "master_?"。
 
-    The name of the master object. Each name must be set to "master_?".
+*   **通信类型**
 
+    选择通信方式：以太网通信或串行通信。
 
-*   **Communication type**
+*   **对象编号**
 
-    Select the communication method: Ethernet communication or serial communication.
+    对于以太网通信，设置在 [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md) 中设置的 enet 编号。<br>
+    对于串行通信，目前只有 2 个可用。
 
+*   **状态**
 
-*   **Object number**
-
-    For Ethernet communication, set the enet number set in [3.3 Ethernet Communication](../3-modbus-tcp/3-enet-comm-setting.md). <br> 
-    For serial communication, only 2 are currently available.
-
-
-*   **State**
-
-    The execution status of the currently running query is displayed by configuring it with robot language commands. If the operation is stopped, "Stopped" is displayed.
+    当前运行查询的执行状态通过配置机器人语言命令显示。如果操作被停止，将显示“Stopped”。
 
 <br>
 <br>
 
 ![](../_assets/image34.png)
 
-You can add a new query using the [append] button and delete the corresponding query using the [Delete] button. <br>
+您可以使用 [append] 按钮添加新的查询，并使用 [Delete] 按钮删除相应的查询。<br>
 
+*   **从站 ID**
 
-*   **Slave id**
+    设置从站 ID(1~247)。
 
-    Set the Slave ID(1~247).
+*   **功能**
 
-*   **Function**
+    设置功能代码。您可以使用 [function info.] 按钮检查支持的功能。
 
-    Set the function code. You can check the supported functions with the [function info.] button.
+*   **起始地址**
 
+    设置从站的起始地址 (0~65534)。
 
-*   **Start address**
+*   **长度**
 
-    Set the slave's starting address (0~65534). 
+    设置数据的数量 (字 : 1~127, 位 : 1~2000)。
 
+*   **超时**
 
-*   **Length**
+    设置超时时间（以秒计）。将其设置为 0 将无限期等待。
 
-    Set the number of data (words : 1~127, bits : 1~2000).
+*   **继电器名称**
 
+    设置继电器（数据内存/输入/输出信号等）名称。
 
-*   **Timeout**
+*   **延迟时间**
 
-    Sets the timeout period (in seconds). Setting it to 0 will wait indefinitely. 
-
-
-*   **Relay name**
-
-    Set to relay (data memory/input/output signal, etc.) name. 
-
-
-*   **Delay time**
-
-    Sets the delay time(in miliseconds) between the execution of the current query and the execution of the next query. 
-
+    设置当前查询执行与下一个查询执行之间的延迟时间（毫秒）。

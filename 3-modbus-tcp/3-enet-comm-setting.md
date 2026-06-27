@@ -1,42 +1,42 @@
-﻿# 3.3 Ethernet communication setting
+﻿# 3.3 以太网通信设置
  
-Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
+在执行 Modbus TCP 主设备操作之前，必须首先创建和配置以太网通信对象。<br>
 
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication` screen. <br>
-Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
-Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
+在 `[F2: 系统] - 2: 控制参数 - 9: 网络 - 2: 服务 - 4: 以太网通信 ([F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication)` 屏幕上设置。<br>
+最多可以使用 "+" 按钮创建五个以太网对象并使用，可以监控当前通信状态。<br>
+由于主设备使用机器人语言命令操作，因此必须单独编写和运行任务程序，而不是从屏幕设置中进行。 (参见 [3.4 Modbus 主设备操作]) <br>
 
 ![](../_assets/image32.png)
 
-You can force close the socket of the corresponding Ethernet object with the `[Close]` button, and perform a communication connection with the `[Connect]` button. <br>
-When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
+您可以通过 `[Close]` 按钮强制关闭相应以太网对象的套接字，并通过 `[Connect]` 按钮进行通信连接。<br>
+当控制器启动时，它会自动与配置的以太网对象建立通信连接。<br>
 
 
-*   **Name**
+*   **名称**
 
-    The name of the Ethernet communication object. Each name must be set to "enet0" ~ "enet4".
-
-
-*   **Protocol**
-
-    Select the communication protocol. For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
+    以太网通信对象的名称。每个名称必须设置为 "enet0" ~ "enet4"。
 
 
-*   **IP address**
+*   **协议**
 
-    Sets the IP address used by the slave. 
-
-
-*   **Local port**
-
-    Sets the local port number. Modbus communication uses port 502 by default.
+    选择通信协议。对于 MODBUS TCP 主设备操作，这必须设置为 "TCPc"（TCP 客户端）。
 
 
-*   **Remote port**
+*   **IP 地址**
 
-    Sets the remote port number. Modbus communication uses port 502 by default.
+    设置从设备使用的 IP 地址。 
 
 
-*   **State**
+*   **本地端口**
 
-    Displays the status of the communication connection. 
+    设置本地端口号。Modbus 通信默认使用端口 502。
+
+
+*   **远程端口**
+
+    设置远程端口号。Modbus 通信默认使用端口 502。
+
+
+*   **状态**
+
+    显示通信连接的状态。
