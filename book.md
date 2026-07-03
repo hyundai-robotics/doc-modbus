@@ -225,44 +225,26 @@ When operating as a slave, the controller responds to master requests, so it ope
  
 Before performing Modbus TCP master operations, you must first create and configure an Ethernet communication object.<br>
 
-Set on `[F2: System] - 2: Control parameter - 9: Network - 2: Service - 4: Ethernet communication` screen. <br>
-Up to five Ethernet objects can be created using "+" button and used, and the current communication status can also be monitored. <br>
-Since Master operates using robot language commands, you must write and run a task program separately from the screen settings. (Refer to [3.4 Modbus master operation]) <br>
-
-![](../_assets/image32.png)
-
-You can force close the socket of the corresponding Ethernet object with the `[Close]` button, and perform a communication connection with the `[Connect]` button. <br>
-When the controller boots, it automatically establishes a communication connection with the configured Ethernet object. <br>
-
-
-*   **Name**
-
-    The name of the Ethernet communication object. Each name must be set to "enet0" ~ "enet4".
-
+For details, please refer to the separate "[${cont_model} Controller Operation Manual - TP630](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/3-control-parameter/9-network-setting/2-service/4-enet-comm-setting?cont_model=${cont_model})" document.
 
 *   **Protocol**
 
-    Select the communication protocol. For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
-
-
-*   **IP address**
-
-    Sets the IP address used by the slave. 
+    For MODBUS TCP master operation, this must be set to "TCPc" (TCP client).
 
 
 *   **Local port**
 
-    Sets the local port number. Modbus communication uses port 502 by default.
+    Modbus communication uses port 502 by default.
 
 
 *   **Remote port**
 
-    Sets the remote port number. Modbus communication uses port 502 by default.
+    Modbus communication uses port 502 by default.
 
+<br>
 
-*   **State**
+To operate as a Modbus master, you must also execute the master function separately. (Refer to [4. Modbus Master](../4-modbus-master/README.md)) <br>
 
-    Displays the status of the communication connection. 
 
 [__SOURCE](4-modbus-master/README.md)
 # 4. Modbus master
