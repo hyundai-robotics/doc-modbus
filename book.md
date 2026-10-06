@@ -258,26 +258,24 @@ You can use robot language statements to construct modbus master queries and sen
 When the statement is executed, data is transmitted and received. <br>
 <br>
 
-#### Grammer
+#### Syntax
 
 ```
-modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # Serial communication
-modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # Ethernet communication
+modbus <communication method>,sid=<slave ID>,fc=<function code>,addr=<start address>,len=<length>,wait=<timeout duration>,var=<data to send or receive>,timeout_addr=<timeout branch address>
 ```
 
 #### Parameters
 
-|Parameters| Description                                                                                                    |    example    |
-| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| _sci2 or _enet0 | <p>Serial port or Ethernet object (str)</p><ul><li>_sci2 : Serial port 2</li><li>_enet0 : Ethernet object 0</li></ul>                                         | "_sci2" or "_enet0" |
-| sid  | Slave ID(1~247) (int)                                                      | 1 |
-| fc | Function code (int), refer to 1.2.5. Functions supported  | 3 / 16 |
-| addr  | Start address of slave (0~65534) (int)                                                       | 0 |
-| len  | Quantity of data (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
-| wait  | timeout (sec) (double), If not specified, infinite waiting                                                       | 3.0 |
-| var  | Array variable of integer type, Data memory(_mw0), Input signal(fb2.diw0), Output signal(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
-
-<br>
+| Parameter | Description | Example | Notes |
+| - | - | - | - |
+| Communication method | Sets the communication method (serial or Ethernet) | "_sci2" or "_enet0" | Serial port or Ethernet object |
+| Slave ID | ID of the slave | 1 | 1–247 |
+| Function code | Modbus function code | 3, 16 | See [1.2.5 Supported Functions](../1-intro/2-modbus-func.md) |
+| Start address | Starting address on the slave | 0 | 0–65534 |
+| Length | Number of data items | 10 | Words: 1–127; bits: 1–2000 |
+| Timeout duration | A timeout occurs if the operation takes longer than the specified duration | 3.0 | Waits indefinitely if omitted |
+| Data to send or receive | Variable to store received data in, or variable containing data to send | arr / _mw0 / fb1.diw0 | Data memory, input signals, or output signals |
+| Timeout branch address | Address to branch to when a timeout occurs | S1 / *timeout / 10 | Branch address. If only the timeout duration is specified, a timeout causes an error. |
 
 #### Sample job
 
