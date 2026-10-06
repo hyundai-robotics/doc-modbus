@@ -242,9 +242,9 @@ Slave로 운영 시 제어기는 마스터 요청에 응답을 수행하기 때�
     모드버스 통신은 기본값으로 502번 포트를 사용합니다.
 
 <br>
-모드버스 마스터로 동작하기 위해서는 이와 별도로 마스터를 실행해야 합니다. ([4. 모드버스 마스터](../4-modbus-master/README.md) 참조) <br>
+모드버스 마스터로 동작하기 위해서는 이와 별도로 마스터를 실행해야 합니다. 
 
-
+([4. 모드버스 마스터](../4-modbus-master/README.md) 참조)
 
 [__SOURCE](4-modbus-master/README.md)
 # 4. 모드버스 마스터
@@ -261,24 +261,21 @@ Slave로 운영 시 제어기는 마스터 요청에 응답을 수행하기 때�
 #### <mark style="color:green;">문법</mark>
 
 ```
-modbus _sci2,sid=1,fc=3,addr=0,len=10,wait=3.0,var=fb1.diw0  # 시리얼통신
-or
-modbus _enet0,sid=1,fc=3,addr=0,len=10,wait=3.0,var=_mw10  # 이더넷통신
+modbus <통신 방법>,sid=<슬레이브ID>,fc=<펑션코드>,addr=<시작 주소>,len=<길이>,wait=<timeout 시간>,var=<송수신 데이터>,timeout_addr=<timeout 주소>
 ```
 
 #### <mark style="color:green;">파라미터</mark>
 
-|파라미터| 설명                                                                                                    |    예    |
-| :---: | ------------------------------------------------------------------------------------------------------- | :-------: |
-| _sci2 or _enet0 | <p>시리얼포트 또는 이더넷객체 (str)</p><ul><li>_sci2 : 시리얼포트 2</li><li>_enet0 : 이더넷객체 0</li></ul>                                         | "_sci2" or "_enet0" |
-| sid  | 슬래이브 ID(1~247) (int)                                                      | 1 |
-| fc | 펑션코드 (int), 1.2.5 지원 펑션 참고                   | 3 / 16 |
-| addr  | 슬래이브의 시작주소 (0~65534) (int)                                                       | 0 |
-| len  | 데이터 개수 (words : 1~127, bits : 1~2000) (int)                                                     | 10 |
-| wait  | timeout 시간 (sec) (double), 지정하지 않으면 무한대기                                                       | 3.0 |
-| var  | int형 배열 변수, 데이터 메모리(_mw0), 입력신호(fb2.diw0), 출력신호(fb3.dow0)                                                       | arr / _mw0 / fb1.diw0 |
-
-<br>
+| 항목 | 의미 | 예 | 기타 |
+| - | - | - |-|
+|통신 방법     |통신방법 설정(시리얼 or 이더넷)|"_sci2" or "_enet0"|시리얼포트 또는 이더넷객체 |
+|슬레이브ID    |슬레이브의 ID|1|1~247|
+|펑션코드      |펑션코드|3,16|[1.2.5 지원 펑션](../1-intro/2-modbus-func.md) 참고|
+|시작주소      |슬레이브의 시작 주소|0|0~65534|
+|길이          |데이터의 개수|10|words : 1~127, bits : 1~2000|
+|timeout 시간  |지정한 시간 이상 소요 시 timeout 처리|3.0|지정하지 않으면 무한대기|
+|송수신 데이터 |수신 시 대입할 변수/송신 시 송신할 변수|arr / _mw0 / fb1.diw0|데이터 메모리, 입력신호, 출력신호|
+|timeout 주소 |timeout 시 분기할 주소|S1 / *timeout / 10|주소. 시간만 지정된 상태에서 timeout 시 에러|
 
 #### <mark style="color:green;">샘플 프로그램</mark>
 
