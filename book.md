@@ -260,7 +260,7 @@ When the statement is executed, data is transmitted and received. <br>
 
 #### Syntax
 
-```
+```hrscript
 modbus <communication method>,sid=<slave ID>,fc=<function code>,addr=<start address>,len=<length>,wait=<timeout duration>,var=<data to send or receive>,timeout_addr=<timeout branch address>
 ```
 
@@ -268,7 +268,7 @@ modbus <communication method>,sid=<slave ID>,fc=<function code>,addr=<start addr
 
 | Parameter | Description | Example | Notes |
 | - | - | - | - |
-| Communication method | Sets the communication method (serial or Ethernet) | "_sci2" or "_enet0" | Serial port or Ethernet object |
+| Communication method | Sets the communication method (serial or Ethernet) | "_sci2" <br> "_enet0" <br> "_tio" | "_sci2": Serial port <br> "_enet0": Ethernet object <br> "_tio": Cobot Tool IO - RS485 Connector |
 | Slave ID | ID of the slave | 1 | 1–247 |
 | Function code | Modbus function code | 3, 16 | See [1.2.5 Supported Functions](../1-intro/2-modbus-func.md) |
 | Start address | Starting address on the slave | 0 | 0–65534 |
